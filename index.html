@@ -1,429 +1,847 @@
-<!DOCTYPE HTML>
-<!--
-	TODO:
-		5. project page (e.g. prisum.html) has no clear background for "contact" section (nor the footer)
-				- I want to see the background image through them... maybe?
-		6. background pic - take picture of me working at desk cluttered with computers/electronics stuff?
-				- done but I don't like how it turned out
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AYUSH KUMAR | Robotics Engineer</title>
 
-	PROJECTS TO ADD:
-		2. SMALLER CNC projects?
-		3. OTHER TINKERING
-		5. BALL TRACKING?
--->
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- <html> -->
-<html prefix="og: http://ogp.me/ns#">
-	<head>
-		<title>Ayush Kumar::Portfolio Website</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<link rel="icon" href="images/favicon.ico">
-		<meta property="og:title" content="Ayush Kumar::Portfolio Website" />
-	  <meta property="og:description" content="Robotic Projects Portfolio Website" />
-	  <meta property="og:url" content="https://njkaiser.github.io/portfolio" />
-	  <meta property="og:image" content="images/porfolio_thumbnail.png" />
-	</head>
-	<body class="landing">
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Ayush Kumar</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="#">Home</a></li>
-											<li><a href="#projects" class="more scrolly">Projects</a></li>
-											<li><a href="#about" class="more scrolly">About</a></li>
-											<li><a href="#contact" class="more scrolly">Contact</a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
+    <!-- model-viewer (for the 3D quadruped) -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Ayush Kumar</h2>
-							<p>MS in Robotics<br />
-							Purdue University</p>
-							<!-- <ul class="actions"> -->
-								<!-- <li><a href="#" class="button special">Make this button do something!</a></li> -->
-							<!-- </ul> -->
-						</div>
-						<a href="#projects" class="more scrolly">View Projects</a>
-					</section>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #38bdf8;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-slate-900/80 z-0"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600" data-aos="fade-down">
+                AYUSH KUMAR
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 mb-12" data-aos="fade-down" data-aos-delay="100">
+                Robotics Engineer | AI Enthusiast | Innovator
+            </p>
 
-										<!-- Timeline -->
-					<section id="timeline" class="wrapper style1 special">
-					<div class="inner">
-						<header class="major">
-						<h2>Timeline</h2>
-						<p>A brief look at my journey</p>
-						</header>
-						<div class="timeline">
-						<div class="timeline-block">
-							<div class="timeline-icon">&#128187;</div>
-							<div class="timeline-content">
-							<h3>Aug 2025 - Present
-							<span class="timeline-icons">
-							<!-- <a href="docs/lor_northwestern.pdf" target="_blank" class="icon fa-file-pdf-o" title="LOR (PDF)"></a> -->
-							<a href="https://www.purdue.edu/" target="_blank" class="icon fa-globe" title="Website"></a>
-							</span>
-							</h3>
-							<p>MS in Robotics at Purdue University.</p>
-							</div>
-						</div>
-						<div class="timeline-block">
-							<div class="timeline-icon"><i class="fa fa-wrench"></i></div>
-							<div class="timeline-content">
-							<h3>Jan 2023 - July 2025
-							<span class="timeline-icons">
-							<a href="https://drive.google.com/drive/folders/12W_d6WN6q9JMeEt4lw0hhw9JbdK0DzIw?usp=sharing" target="_blank" class="icon fa-file-pdf-o" title="Experience Letter & LOR"></a>
-							<a href="https://addverb.com/" target="_blank" class="icon fa-globe" title="Website"></a>
-							</span>
-							</h3>
-							<p>Robotics Engineer at Addverb Technologies</p>
-							</div>
-						</div>
-						<div class="timeline-block">
-							<div class="timeline-icon"><i class="fa fa-wrench"></i></div>
-							<div class="timeline-content">
-							<h3>Sept 2021 - Jun 2022
-							<span class="timeline-icons">
-							<a href="https://drive.google.com/drive/folders/1q_vG9x-vb33YZnKkt0iRd3HCVEDgsQv6?usp=sharing" target="_blank" class="icon fa-file-pdf-o" title="Experience Letter & LOR"></a>
-							<a href="https://www.orangewood.co/" target="_blank" class="icon fa-globe" title="Website"></a>
-							</span>
-							</h3>
-							<p>Research and Development Intern at Orangewood Labs</p>
-							</div>
-						</div>
-						<div class="timeline-block">
-							<div class="timeline-icon"><i class="fa fa-wrench"></i></div>
-							<div class="timeline-content">
-							<h3>May 2021 - Aug 2021
-							<span class="timeline-icons">
-							<a href="https://drive.google.com/drive/folders/1uit-qJ-FDUhNROrcrlZT70M8vrEBk2lO?usp=sharing" target="_blank" class="icon fa-file-pdf-o" title="Experience Letter & LOR"></a>
-							<a href="https://www.dentratech.com/" target="_blank" class="icon fa-globe" title="Website"></a>
-							</span>
-							</h3>
-							<p>Research and Development Intern at Denta(Asvin) Tech</p>
-							</div>
-						</div>
+            <!-- 3D Quadruped Model (replaces the old manual animation) -->
+            <div class="relative w-full max-w-3xl h-[420px] mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <!-- Place your files at: assets/quadruped.glb and (optionally) assets/quadruped.usdz -->
+                <model-viewer
+                    src="assets/spot.glb"
+                    ios-src="assets/quadruped.usdz"
+                    alt="Quadruped robot 3D model"
+                    camera-controls
+                    auto-rotate
+                    ar
+                    ar-modes="webxr scene-viewer quick-look"
+                    exposure="1.0"
+                    shadow-intensity="1"
+                    environment-image="neutral"
+                    style="width:100%; height:100%; background: transparent;">
+                </model-viewer>
+            </div>
 
-						<div class="timeline-block">
-							<div class="timeline-icon"><i class="fa fa-wrench"></i></div>
-							<div class="timeline-content">
-							<h3>Jan 2020 - Feb 2020
-							<span class="timeline-icons">
-							<a href="https://drive.google.com/drive/folders/1r1Q8yq5iXn7PMWa0iKNVC8VMSrPlfAS5?usp=sharing" target="_blank" class="icon fa-file-pdf-o" title="Experience Letter & LOR"></a>
-							</span>
-							</h3>
-							<p>Research and Development Intern at FormFab</p>
-							</div>
-						</div>
+            <div class="mt-24" data-aos="fade-up" data-aos-delay="300">
+                <a href="#about" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 transition duration-300">
+                    Explore My Work
+                    <i data-feather="arrow-down" class="ml-2"></i>
+                </a>
+            </div>
+        </div>
 
-						<div class="timeline-block">
-							<div class="timeline-icon">&#127891;</div>
-							<div class="timeline-content">
-							<h3>July 2019 - July 2023</h3>
-							<p>Bachelor's in Electronics and Communication Engineering from IIIT Jabalpur</p>
-							
-							</div>
-						</div>
-						</div>
-					</div>
-					</section>
+        <!-- Navigation -->
+        <nav class="absolute top-0 left-0 right-0 z-50 py-6 px-8">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-cyan-400">AK</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-slate-300 hover:text-white">About</a>
+                    <a href="#experience" class="nav-link text-slate-300 hover:text-white">Experience</a>
+                    <a href="#projects" class="nav-link text-slate-300 hover:text-white">Projects</a>
+                    <a href="#publications" class="nav-link text-slate-300 hover:text-white">Publications</a>
+                    <a href="#achievements" class="nav-link text-slate-300 hover:text-white">Achievements</a>
+                    <a href="#contact" class="nav-link text-slate-300 hover:text-white">Contact</a>
+                </div>
+                <button class="md:hidden text-slate-300">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </nav>
+    </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 md:px-8 bg-slate-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <img src="assets/dp.jpg" alt="Ayush Kumar" class="rounded-lg shadow-xl w-[640px] h-[480px] object-cover">
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <p class="text-lg text-slate-300 mb-6">
+                        I’m a Robotics Engineer specializing in SLAM, navigation, computer vision, and reinforcement learning. With over 3 years of experience, I’ve contributed to the development of diverse autonomous systems and robotic platforms.
+                    </p>
+                    <p class="text-lg text-slate-300 mb-6">
+                        I am currently pursuing a Master’s degree in Robotics at Purdue University, with a focus on multi-modal models, reinforcement learning, and classical control theory to drive more efficient and intelligent robotic operations.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">SLAM</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Reinforcement Learning</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Navigation</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Computer Vision</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Machine Learning</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">ROS 2</span>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 transition duration-300">
+                        Get In Touch
+                        <i data-feather="send" class="ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+<!-- Education Timeline (keep this INSIDE the .container mx-auto) -->
+<div class="mt-16" data-aos="fade-up">
+  <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Education</h3>
 
+  <!-- Mobile: vertical like Experience -->
+  <div class="md:hidden space-y-8">
+    <div class="flex items-start gap-4">
+      <div
+        class="w-10 h-10 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover"
+        style="background-image:url('assets/purdue.png');">
+      </div>
+      <div>
+        <p class="font-semibold text-white">Purdue University</p>
+        <p class="text-slate-400 text-sm">M.S. in Robotics • 2025–Present</p>
+      </div>
+    </div>
 
-				<!-- projects -->
-					<section id="projects" class="wrapper alt style2">
+    <div class="flex items-start gap-4">
+      <div
+        class="w-10 h-10 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover"
+        style="background-image:url('assets/iiit.png');">
+      </div>
+      <div>
+        <p class="font-semibold text-white">IIIT Jabalpur</p>
+        <p class="text-slate-400 text-sm">BTech in ECE • 2019–2023</p>
+      </div>
+    </div>
 
-						<section class="spotlight">
-							<div class="image"><a href="autonomy.html"><img src="images/autonomy.gif" alt="Visual-Inetial-Lidar SLAM pipeline" /></a></div>
-							<div class="content">
-								<h2><a href="autonomy.html">Visual-Inetial-Lidar SLAM pipeline</a></h2>
-								<p>Engineered the autonomy stack for an in-house quadruped at Addverb, integrating a custom visual-inertial-LiDAR SLAM pipeline with a robust navigation framework.</p>
-							</div>
-						</section>
+    <div class="flex items-start gap-4">
+      <div
+        class="w-10 h-10 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover"
+        style="background-image:url('assets/dav.png');">
+      </div>
+      <div>
+        <p class="font-semibold text-white">DAV Public School, Ranchi</p>
+        <p class="text-slate-400 text-sm">High School • 2017–2019</p>
+      </div>
+    </div>
+  </div>
 
-						<section class="spotlight">
-							<div class="image"><a href="cancer.html"><img src="images/haptic.png" alt="Haptic VR Simulator" /></a></div><div class="content">
-								<h2><a href="cancer.html">Haptic VR Simulator</a></h2>
-								<p>Built a VR-based training simulator for Addverb’s proprietary 6-DoF medical haptic device, enabling professionals to familiarize themselves with force feedback through gamified experiences.</p>
-							</div>
-						</section>
+  <!-- Desktop: horizontal timeline with connectors -->
+  <div class="hidden md:grid grid-cols-5 items-start gap-6">
+    <!-- Node 1 -->
+    <div class="col-span-1 flex flex-col items-center text-center" data-aos="fade-up">
+      <div
+        class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800"
+        style="background-image:url('assets/a.png');">
+      </div>
+      <div class="mt-4">
+        <p class="font-semibold text-white">Purdue University, West Lafayette</p>
+        <p class="text-slate-400 text-sm">M.S. in Robotics • 2025–Present</p>
+      </div>
+    </div>
 
-						<section class="spotlight">
-								<div class="image-group" style="display: flex; gap: 10px;">
-								<!-- First Image -->
-								<div class="image">
-								<a href="autonomy.html">
-									<img src="images/owl.jpg" alt="Cobot with AGV" style="max-width: 400px; height: 350px" />
-								</a>
-								</div>
+    <!-- Connector 1 -->
+    <div class="col-span-1 flex items-center">
+      <div class="w-full h-0.5 bg-slate-600"></div>
+    </div>
 
-								<!-- Second Image -->
-								<div class="image">
-								<a href="another-page.html">
-									<img src="images/owl_2.jpg" alt="Second Image" style="max-width: 400px; height: 350px" />
-								</a>
-								</div>
-							</div>
-							<!-- <div class="image"><a href="autonomy.html"><img src="images/owl.jpg" alt="Cobot with AGV" style="max-width: 300px; height: auto;"/></a></div> -->
-							<div class="content">
-								<h2><a href="autonomy.html">Software stack for Cobot with AGV</a></h2>
-								<p>Designed and developed the complete software stack for a collaborative robot integrated with an AGV at Orangewood, including low-level control, a custom navigation stack, kinematic modeling of the cobot, and a Python-based user interface.</p>
-							</div>
-						</section>
+    <!-- Node 2 -->
+    <div class="col-span-1 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+      <div
+        class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800"
+        style="background-image:url('assets/iiit.jpg');">
+      </div>
+      <div class="mt-4">
+        <p class="font-semibold text-white">IIIT Jabalpur</p>
+        <p class="text-slate-400 text-sm">BTech in ECE • 2019–2023</p>
+      </div>
+    </div>
 
-						<section class="spotlight">
-							<div class="image"><a href="compviz.html"><img src="images/crane.gif" alt="6DOF pose tracker" /></a></div>
-							<div class="content">
-								<h2><a href="compviz.html">6D DOF Pose tracker for Crane hooks</a></h2>
-								<p>Developed a plug-and-play SMART BOX to track the 6-DoF pose of a crane’s hook, enhancing safety by enabling precise position and orientation tracking. Built as part of a robotics hackathon organised by L&T.</p>
-							</div>
-						</section>
+    <!-- Connector 2 -->
+    <div class="col-span-1 flex items-center">
+      <div class="w-full h-0.5 bg-slate-600"></div>
+    </div>
 
-						<section class="spotlight">
-							<div class="image"><a href="mlai.html"><img src="images/sewer.png" alt="Sewer Monitoring Robot" /></a></div>
-							<div class="content">
-								<h2><a href="mlai.html">Sewer Monitoring Robot</a></h2>
-								<p>Built a smart sewer monitoring robot that maps underground pipelines and performs structural analysis, enabling efficient inspection, early fault detection, and data-driven maintenance planning. Built as a part of hackathon organised by La Trobe University Australia.</p>
-							</div>
-						</section>
-
-						<section class="spotlight">
-							<div class="image"><a href="baxter.html"><img src="images/UV_bot.png" alt="UV disinfactant robot" /></a></div>
-							<div class="content">
-								<h2><a href="baxter.html">UV disinfactant robot</a></h2>
-									<p>Designed and implemented an autonomous UV-disinfection robot for hospitals, featuring a custom algorithm that intelligently optimizes zap patterns to reduce power usage and maximize area coverage. Completed as part of a Bachelor's capstone project.</p>
-							</div>
-						</section>
-
-						<section class="spotlight">
-							<div class="image"><a href="advancedcontrol.html"><img src="images/a_star.png" alt="Custom Path Planning Algorithm" /></a></div>
-							<div class="content">
-								<h2><a href="advancedcontrol.html">Custom Path Planning Algorithm</a></h2>
-								<p>Developed a lightweight, ROS-independent A* path planning algorithm with path smoothing, fully implemented in C++ for deployment on resource-constrained boards.</p>
-							</div>
-						</section>
-
-						<section class="spotlight">
-							<div class="image"><a href="prisum.html"><img src="images/ransac.gif" alt="Efficient Ransac based ground plane segmentation algorithm using IMU" /></a></div>
-							<div class="content">
-								<h2><a href="prisum.html">Efficient Ransac based ground plane segmentation algorithm using IMU</a></h2>
-								<p>Designed and implemented a RANSAC-based ground plane segmentation algorithm, using IMU readings as an initial estimate to reduce computation time and improve real-time performance.</p>
-							</div>
-						</section>
-
-						<section class="spotlight">
-							<div class="image"><a href="cnc.html"><img src="images/clumsy.gif" alt="Motion Capture Robot" /></a></div>
-							<div class="content">
-								<h2><a href="cnc.html">Motion Capture Robot</a></h2>
-								<p>Designed a humanoid robot controlled via a sensor-equipped wearable suit, enabling real-time imitation of human movements. Developed as part of a national-level hackathon project during high school.</p>
-							</div>
-						</section>
-
-						<section class="spotlight">
-							<div class="image"><a href="cnc.html"><img src="images/rehab_glove.gif" alt="Mechatronic Rehabilition Glove" /></a></div>
-							<div class="content">
-								<h2><a href="cnc.html">Mechatronic Rehabilition Glove</a></h2>
-								<p>Developed a mechatronic rehabilitation glove aimed at supporting motor recovery in children from refugee camps in India. Integrated with a game to reduce the physical and emotional strain of therapy by making the process playful and engaging. Built as a part of government project.</p>
-							</div>
-						</section>
-
-						<section class="spotlight">
-							<div class="image"><a href="cnc.html"><img src="images/cobot.gif" alt="6 DOF robotic ARM"  style="max-width: 300px; height: auto;" /></a></div>
-							<div class="content">
-								<h2><a href="cnc.html">6 DOF robotic ARM</a></h2>
-								<p>Engineered a fully functional 6-DoF robotic arm from scratch, writing low-level firmware for actuators and implementing ROS-based control architectures. The project included testing various motion planning strategies to enable precise and adaptive manipulation.</p>
-							</div>
-						</section>
-
-					</section>
-
-									<!-- Achievements -->
-					<section id="achievements" class="wrapper style1 special">
-					<div class="inner">
-						<header class="major">
-						<h2>Achievements</h2>
-						<p>Notable milestones in my academic and professional journey</p>
-						</header>
-						<ul class="features">
-						<li class="icon fa-trophy">
-							<h3>Best Robotics Paper Award – ICAR 2025</h3>
-							<p>Won the best paper award for work on vision-based navigation using deep reinforcement learning.</p>
-						</li>
-						<li class="icon fa-graduation-cap">
-							<h3>Graduated Top 5% – B.Tech</h3>
-							<p>Graduated with high honors in Mechanical Engineering with specialization in robotics and automation.</p>
-						</li>
-						<li class="icon fa-rocket">
-							<h3>SLAM System Deployed in Warehouses</h3>
-							<p>Developed a LiDAR and vision-based SLAM pipeline now used in live deployments across Addverb warehouses.</p>
-						</li>
-						<li class="icon fa-lightbulb-o">
-							<h3>Patent Filed – Autonomous Picking System</h3>
-							<p>Filed a patent for a novel robotic picking system integrated with low-cost perception hardware.</p>
-						</li>
-						<!-- Add more achievements here -->
-						</ul>
-					</div>
-					</section>
+    <!-- Node 3 -->
+    <div class="col-span-1 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
+      <div
+        class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800"
+        style="background-image:url('assets/dav.png');">
+      </div>
+      <div class="mt-4">
+        <p class="font-semibold text-white">DAV Public School, Ranchi</p>
+        <p class="text-slate-400 text-sm">High School • 2017–2019</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-					<section id="about" class="wrapper style2 special">
-						<div class="inner">
-							<header class="major">
-								<div class="row">
-									<div class="6u 12u$(medium)">
-										<h2>Interests</h2>
-										<ul>
-											<li>Autonomy</li>
-											<li>Localization &amp; Planning</li>
-											<li>Computer Vision</li>
-											<li>Machine Learning</li>
-											<li>Artificial Intelligence</li>
-											<li>Dynamic System Modeling</li>
-											<li>Human/Machine Interaction</li>
-											<li>Embedded Systems</li>
-											<li>Algorithm Development</li>
-											<li>New Technologies</li>
-											<li>Renewables</li>
-											<li>Open Source</li>
-										</ul>
-									</div>
-									<div class="6u$ 12u$(medium)">
-										<h2>About</h2>
-											<p align="left">Currently pursuing my MS in Robotics at Northwestern University, I intend to focus on areas such as localization and planning, machine learning, AI, computer vision, embedded systems, and algorithm development - essentially everything a robot needs to navigate its environment. I hope to combine my mechanical expertise with the skills and concepts learned in this program to rapidly advance the exciting field of autonomy and control. I believe my creativity, enthusiasm for the field, and maker mentality will be assets to any team I join in the future.</p>
-											<p align="right"><b>-Ayush</b></p>
-									</div>
-								</div>
-
-								<hr />
-								
-							<p align="left"><b>Want to learn more?</b> Check out my <a href="https://www.linkedin.com/in/nate-kaiser-95536426" target="blank">LinkedIn profile</a>, download my <a href="resume.pdf" target="blank">résumé</a>, or send me an <a href="mailto:nathanielkaiser2017@u.northwestern.edu">e-mail</a> using the links below.</p>
-
-							</header>
-							<ul class="icons major">
-								<li><a href="https://www.linkedin.com/in/nate-kaiser-95536426" target="blank" class="icon fa-linkedin-square fa-3x"><span class="label">LinkedIn</span></a></li>
-								<li><a href="resume.pdf" target="blank" class="icon fa-file-pdf-o fa-3x"><span class="label">Resume</span></a></li>
-								<li><a href="mailto:nathanielkaiser2017@u.northwestern.edu" class="icon fa-envelope-o fa-3x"><span class="label">Email</span></a></li>
-							</ul>
-						</div>
-					</section>
-
-				<!-- Three -->
-					<!-- <section id="three" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Accumsan mus tortor nunc aliquet</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
-							</header>
-							<ul class="features">
-								<li class="icon fa-paper-plane-o">
-									<h3>Arcu accumsan</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-laptop">
-									<h3>Ac Augue Eget</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-code">
-									<h3>Mus Scelerisque</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-headphones">
-									<h3>Mauris Imperdiet</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-heart-o">
-									<h3>Aenean Primis</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-flag-o">
-									<h3>Tortor Ut</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-							</ul>
-						</div>
-					</section> -->
 
 
-				<!-- contact -->
-					<section id="contact" class="wrapper style4">
-						<div class="inner">
-							<header>
-								<h2>Contact</h2>
-								<p>To get the conversation started, use the form below (or, if you'd rather, send me an email or message me on LinkedIn). Feel free to contact me about career opportunities, relevant events such as conventions or conferences, or volunteer opportunities!</p>
-								<!-- <h4>Contact Form</h4> -->
-								<form method="POST" action="https://formspree.io/f/xknpbgrv">
-									<div class="row uniform">
-										<div class="6u 12u$(xsmall)">
-											<input type="text" name="name" id="name" value="" placeholder="Name" />
-										</div>
-										<div class="6u$ 12u$(xsmall)">
-											<input type="email" name="email" id="email" value="" placeholder="Email Address" />
-										</div>
-										<div class="6u$ 12u$(small)">
-											<input type="checkbox" id="ishuman" name="ishuman" unchecked>
-											<label for="ishuman">Not a robot</label>
-										</div>
-										<div class="12u$">
-											<textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
-										</div>
-										<div class="12u$">
-											<ul class="actions">
-												<li><input type="submit" value="Send Message" class="special" /></li>
-												<li><input type="reset" value="Reset" /></li>
-											</ul>
-										</div>
-									</div>
-								</form>
-							</header>
-						</div>
-					</section>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 md:px-8 bg-slate-800">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">My Experience</h2>
+
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="border-l-2 border-cyan-400 absolute inset-y-12 left-1/2 transform -translate-x-1/2 hidden md:block"></div>
 
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="https://github.com/ayushkumar8340/" target="blank" class="icon fa-github fa-lg"><span class="label">Github</span></a></li>
-							<li><a href="https://www.linkedin.com/in/ayush-kumar-157628207/" target="blank" class="icon fa-linkedin fa-lg"><span class="label">Email</span></a></li>
-							<li><a href="mailto:kumar987@purdue.edu" class="icon fa-envelope-o fa-lg"><span class="label">Email</span></a></li>
-							<!-- <li><a href="#" class="icon fa-youtube-play"><span class="label">YouTube</span></a></li> -->
-							<!-- <li><a href="#" class="icon fa-file-pdf-o"><span class="label">Resume</span></a></li> -->
-						</ul>
-						<ul class="copyright">
-							<!-- <li>Template: <a href="https://html5up.net/spectral"> SPECTRAL</a></li><li>From: <a href="http://html5up.net">HTML5 UP</a></li> -->
-						</ul>
-					</footer>
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    <!-- Item 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up">
+                        <div class="md:w-1/2 md:pr-16 md:text-right mb-6 md:mb-0 mt-12">
+                            <h3 class="text-xl font-bold text-cyan-400">IDEAS Lab, Purdue</h3>
+                            <p class="text-slate-300">Graduate Research Assistant</p>
+                            <p class="text-slate-400 text-sm">Sept 2025 - Present</p>
+                        </div>
+                        <!-- Two logos for collaboration -->
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center w-0">
+                        <!-- Left logo -->
+                        <div
+                            class="w-14 h-14 rounded-full bg-center bg-cover shadow-lg ring-2 ring-cyan-400 absolute -left-12"
+                            style="background-image:url('assets/a.png');"
+                            title="Company A"
+                            aria-label="Company A"
+                        ></div>
 
-			</div>
+                        <!-- Right logo -->
+                        <div
+                            class="w-14 h-14 rounded-full bg-center bg-cover shadow-lg ring-2 ring-cyan-400 absolute -right-12"
+                            style="background-image:url('assets/f.jpg');"
+                            title="Company B"
+                            aria-label="Company B"
+                        ></div>
+                        </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+                        <div class="md:w-1/2 md:pl-16 mt-12">
+                            <p class="text-slate-300">
+                                Developing advanced navigation algorithms for Eli Lilly’s warehouse robots, integrating deep scene understanding, human behavior modeling, and reinforcement learning to enhance safety, efficiency, and human-robot collaboration.
+                            </p>
+                        </div>
+                    </div>
 
-	</body>
+                    <!-- Item 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
+                            <h3 class="text-xl font-bold text-cyan-400">Addverb Technologies</h3>
+                            <p class="text-slate-300">Robotics Engineer</p>
+                            <p class="text-slate-400 text-sm">Sept 2023 - Jul 2025</p>
+                        </div>
+                        <div
+                        class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
+                        style="background-image:url('assets/c.jpeg');">
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 order-2">
+                            <p class="text-slate-300">
+                                Developed a complete autonomy stack for quadruped robots, enabling navigation in complex and unmapped environments.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                            <h3 class="text-xl font-bold text-cyan-400">Addverb Technologies</h3>
+                            <p class="text-slate-300">Advanced Robotics Eng. Intern</p>
+                            <p class="text-slate-400 text-sm">Jan 2023 - Sept 2023</p>
+                        </div>
+                        <div
+                        class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
+                        style="background-image:url('assets/c.jpeg');">
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <p class="text-slate-300">
+                                Developed lower-level drivers, communication modules, and data filters to enable seamless sensor integration and efficient data processing.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
+                            <h3 class="text-xl font-bold text-cyan-400">Orangewood Labs</h3>
+                            <p class="text-slate-300">Research and Development Eng. Intern</p>
+                            <p class="text-slate-400 text-sm">Sept 2021 - Jun 2022</p>
+                        </div>
+                        <div
+                        class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
+                        style="background-image:url('assets/b.jpg');">
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 order-2">
+                            <p class="text-slate-300">
+                                Developed the complete software stack—including SLAM, navigation, firmware, safety layers, and communication protocols—for an Autonomous Mobile Robot (AMR) equipped with a collaborative robot (Cobot) for automated wall painting.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- Item 5 -->
+                    <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
+                            <h3 class="text-xl font-bold text-cyan-400">Asvin Tech</h3>
+                            <p class="text-slate-300">Research and Development Eng. Intern</p>
+                            <p class="text-slate-400 text-sm">May 2021 - Aug 2021</p>
+                        </div>
+                        <div
+                        class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
+                        style="background-image:url('assets/d.jpeg');">
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 order-2">
+                            <p class="text-slate-300">
+                                Developed a photogrammetry pipeline for 3D reconstruction of teeth using an in-house intra-oral scanner device, enabling highly accurate models for dental applications.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
+                            <h3 class="text-xl font-bold text-cyan-400">Form Fab</h3>
+                            <p class="text-slate-300">Research and Development Eng. Intern</p>
+                            <p class="text-slate-400 text-sm">Jan 2020 - Mar 2020</p>
+                        </div>
+                        <div
+                        class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
+                        style="background-image:url('assets/e.jpg');">
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 order-2">
+                            <p class="text-slate-300">
+                                Benchmarked state-of-the-art computer vision models, including VGG-16 and AlexNet, for fault detection in metal 3D printing processes.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 md:px-8 bg-slate-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Featured Projects</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <a href="project-quadruped.html" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/photos/spot.jpg" alt="Quadruped Robot" class="w-full h-55 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Navigation among movable objects - IDEAS Lab</h3>
+                        <p class="text-slate-300 mb-4">An intelligent navigation approach for dense and cluttered indoor and outdoor environments, utilizing the Boston Dynamics SPOT robot to interact effectively with its surroundings.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Isaac Lab</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">VLM</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">UNet</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Synthetic Data Generation</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Reinforcement Learning</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">ROS 2</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 2 -->
+            <a href="project-slam.html" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/gifs/trakr.gif" alt="SLAM System" class="w-full h-55 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Autonomy Stack for Qaudruped - Addverb</h3>
+                        <p class="text-slate-300 mb-4">Developed the autonomy stack—including SLAM and navigation—for Addverb’s in-house quadruped, TRAKR, enabling efficient navigation in unknown environments with minimal human intervention.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Graph Optimization</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Bundle Adjustment</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Loop Closure</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Sensor Fusion</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Hybrid A*</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Pure Pursuit Controller</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Design Pattern</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">OpenCV</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 3 -->
+            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/gifs/haptic.gif" alt="Swarm Robotics" class="w-full h-55 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">VR Haptic Simulator - Addverb</h3>
+                        <p class="text-slate-300 mb-4">Built a VR haptic simulator in Unity to train professionals in adapting to force feedback for long-distance teleoperation over 5G.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 4 -->
+            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/photos/owl.jpg" alt="Swarm Robotics" class="w-full h-55 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">AMR Software Stack - Orangewood labs</h3>
+                        <p class="text-slate-300 mb-4">"Developed an extensive software stack—including navigation, mapping, localization, communication, data filtering, and kinematics—for an AMR equipped with a robotic arm for wall painting, using ROS 2 as the core framework.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 5 -->
+            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/gifs/crane.gif" alt="Swarm Robotics" class="w-full h-55 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">6D DOF Pose tracker for Crane hooks</h3>
+                        <p class="text-slate-300 mb-4">Developed a plug-and-play SMART BOX to track the 6-DoF pose of a crane’s hook, enhancing safety by enabling precise position and orientation tracking. Built as part of a robotics hackathon organised by L&T.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 6 -->
+            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/photos/sewer.png" alt="Swarm Robotics" class="w-full h-55 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Sewer Monitoring Robot</h3>
+                        <p class="text-slate-300 mb-4">Built a smart sewer monitoring robot that maps underground pipelines and performs structural analysis, enabling efficient inspection, early fault detection, and data-driven maintenance planning. Built as a part of hackathon organised by La Trobe University Australia.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 7 -->
+            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/photos/UV_bot.png" alt="Swarm Robotics" class="w-full h-55 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">UV disinfectant robot</h3>
+                        <p class="text-slate-300 mb-4">Designed and implemented an autonomous UV-disinfection robot for hospitals, featuring a custom algorithm that intelligently optimizes zap patterns to reduce power usage and maximize area coverage. Completed as part of an undergrad's capstone project.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 8 -->
+            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/gifs/ransac.gif" alt="Swarm Robotics" class="w-full h-64 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Efficient Ransac based ground plane segmentation algorithm using IMU</h3>
+                        <p class="text-slate-300 mb-4">Designed and implemented a RANSAC-based ground plane segmentation algorithm, using IMU readings as an initial estimate to reduce computation time and improve real-time performance.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 9 -->
+            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/gifs/rehab_glove.gif" alt="Swarm Robotics" class="w-full h-55 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Mechatronic Rehabilition Glove</h3>
+                        <p class="text-slate-300 mb-4">Developed a mechatronic rehabilitation glove aimed at supporting motor recovery in children from refugee camps in India. Integrated with a game to reduce the physical and emotional strain of therapy by making the process playful and engaging. Built as a part of government project.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 10 -->
+            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/gifs/cobot.gif" alt="Swarm Robotics" class="w-full h-64 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">6 DOF robotic ARM</h3>
+                        <p class="text-slate-300 mb-4">Engineered a fully functional 6-DoF robotic arm from scratch, writing low-level firmware for actuators and implementing ROS-based control architectures. The project included testing various motion planning strategies to enable precise and adaptive manipulation.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 11 -->
+            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/photos/a_star.png" alt="Swarm Robotics" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Custom Path Planning Algorithm</h3>
+                        <p class="text-slate-300 mb-4">Developed a lightweight, ROS-independent A* path planning algorithm with path smoothing, fully implemented in C++ for deployment on resource-constrained boards.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 12 -->
+            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                    <img src="assets/gifs/clumsy.gif" alt="Swarm Robotics" class="w-full h-55 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Motion Capture Robot</h3>
+                        <p class="text-slate-300 mb-4">Designed a humanoid robot controlled via a sensor-equipped wearable suit, enabling real-time imitation of human movements. Developed as part of a national-level hackathon project during high school.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        </div>
+    </section>
+
+<!-- Publications Section -->
+<section id="publications" class="py-20 px-4 md:px-8 bg-slate-800">
+  <div class="container mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+      Publications
+    </h2>
+
+    <ul class="space-y-6 max-w-5xl mx-auto">
+      <!-- Pub 1 -->
+      <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up">
+        <div class="flex items-start gap-4">
+          <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
+          <div>
+            <h3 class="text-lg font-semibold text-white">
+              A Sensor-based system for real-time three-dimensional positioning of crane hook and method thereof,
+            </h3>
+            <p class="text-slate-400">
+              Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2023
+            </p>
+            <div class="mt-3 flex flex-wrap gap-4">
+              <a href="#" class="text-cyan-400 hover:underline">Application No. 202321075984</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Pub 2 -->
+      <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-start gap-4">
+          <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
+          <div>
+            <h3 class="text-lg font-semibold text-white">
+              Haptic device for six degrees of freedom parallel manipulation
+            </h3>
+            <p class="text-slate-400">
+              Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2023 
+            </p>
+            <div class="mt-3 flex flex-wrap gap-4">
+              <a href="#" class="text-cyan-400 hover:underline">Application No. 202311074914</a>
+
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Pub 1 -->
+      <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up">
+        <div class="flex items-start gap-4">
+          <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
+          <div>
+            <h3 class="text-lg font-semibold text-white">
+              Design of mechatronic rehabilitation glove
+            </h3>
+            <p class="text-slate-400">
+              Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2022
+            </p>
+            <div class="mt-3 flex flex-wrap gap-4">
+              <a href="#" class="text-cyan-400 hover:underline">Application No. 361771-001</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      
+    </ul>
+  </div>
+</section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 px-4 md:px-8 bg-slate-900">
+    <div class="container mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+        Achievements
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Achievement 1 -->
+        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Gold Medal BTech - 2024</h3>
+            <p class="text-slate-300">Awarded the D&M Proficiency Gold Medal for the best project across the entire B.Tech batch of 2023.</p>
+        </div>
+
+        <!-- Achievement 2 -->
+        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Rookie Of The Year - 2024</h3>
+            <p class="text-slate-300">Nominated as Best Performer among all freshers in the Advanced Robotics division at Addverb.</p>
+        </div>
+        
+
+        <!-- Achievement 3 -->
+        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Top 10 in TIGC - 2024</h3>
+            <p class="text-slate-300">Ranked in the top 10 at TIGC, an international robotics hackathon organized by La Trobe University, Australia, and received AUD 1,000 (~USD 670) in funding to develop a prototype of the proposed solution.</p>
+        </div>
+
+        <!-- Achievement 4 -->
+        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">AIR-1 Techgium - 2022</h3>
+            <p class="text-slate-300">Secured AIR-1 among 800+ participants in a hackathon organized by Larsen & Toubro (L&T), winning a cash prize of INR 1M (~11K USD ) for developing a solution to mitigate crane accidents at construction sites.</p>
+        </div>        
+
+        <!-- Achievement 5 -->
+        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner Technovate - 2020</h3>
+            <p class="text-slate-300">Awarded first place in Technovate, a national-level exhibition at IIIT Jabalpur during the annual techno-cultural and design festival.</p>
+        </div>
+
+        <!-- Achievement 6 -->
+        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner BullsEye - 2020</h3>
+            <p class="text-slate-300">Secured 1st place in BullsEye, a national-level rocket design competition at IIIT Jabalpur’s annual techno-cultural and design festival, earning titles for both longest flight time and maximum range.</p>
+        </div>
+
+        <!-- Achievement 7 -->
+        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">RunnerUp Robothon - 2020</h3>
+            <p class="text-slate-300">Finished as the runner-up in Robothon, a national-level all-terrain semi autonomous vehicle design competition at IIIT Jabalpur during the annual techno-cultural and design festival.</p>
+        </div>
+
+
+        <!-- Achievement 8 -->
+        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300 " data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner National-level CBSE Science Exhibition - 2017</h3>
+            <p class="text-slate-300">Won the CBSE National Level Science Exhibition for developing a motion-synchronized humanoid robot torso that mimics the movements of a human operator.</p>
+        </div>
+
+    </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 md:px-8 bg-slate-800">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Get In Touch</h2>
+
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">Contact Information</h3>
+                    <p class="text-slate-300 mb-6">
+                        Feel free to reach out if you're looking for a robotics engineer, have a question, or just want to connect.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i data-feather="mail" class="text-cyan-400 mr-4"></i>
+                            <span class="text-slate-300">kumar987@purdue.edu</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="phone" class="text-cyan-400 mr-4"></i>
+                            <span class="text-slate-300">+1 (765) 694-9970</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="map-pin" class="text-cyan-400 mr-4"></i>
+                            <span class="text-slate-300">West Lafayette, IN</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex space-x-4">
+                        <a href="https://github.com/ayushkumar8340" class="text-slate-300 hover:text-cyan-400 transition">
+                            <i data-feather="github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ayush-kumar-157628207/" class="text-slate-300 hover:text-cyan-400 transition">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <form action="mailto:kumar987@purdue.edu" method="POST" enctype="text/plain" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 transition duration-300">
+                            Send Message
+                            <i data-feather="send" class="ml-2 inline"></i>
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 md:px-8 bg-slate-900">
+        <div class="container mx-auto text-center">
+            <p class="text-slate-400">© 2025 Ayush Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS + Feather icons
+        AOS.init({ duration: 800, once: true });
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+        });
+        // Note: Removed the old "robot-leg" JS animation completely.
+    </script>
+</body>
 </html>

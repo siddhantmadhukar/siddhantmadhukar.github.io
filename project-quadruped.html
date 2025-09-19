@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Quadruped Robot | AYUSH KUMAR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .project-detail {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .tech-badge {
+            transition: all 0.3s ease;
+        }
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(56, 189, 248, 0.1), 0 2px 4px -1px rgba(56, 189, 248, 0.06);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="py-6 px-8 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-cyan-400">AK</a>
+            <a href="index.html" class="flex items-center text-slate-300 hover:text-cyan-400 transition">
+                <i data-feather="arrow-left" class="mr-2"></i>
+                Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="py-20 px-4 md:px-8 bg-gradient-to-b from-slate-900 to-slate-800">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+                        Autonomous Quadruped Robot
+                    </h1>
+                    <p class="text-xl text-slate-300 mb-8">
+                        A bio-inspired quadruped robot capable of navigating complex terrains using reinforcement learning and advanced locomotion algorithms.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400 tech-badge">ROS</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400 tech-badge">Python</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400 tech-badge">Gazebo</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400 tech-badge">Reinforcement Learning</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0" data-aos="fade-left">
+                    <div class="relative overflow-hidden rounded-xl shadow-2xl">
+                        <img src="http://static.photos/technology/1024x576/101" alt="Quadruped Robot" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Details -->
+    <section class="py-20 px-4 md:px-8 project-detail">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl font-bold mb-8 text-cyan-400" data-aos="fade-up">Project Overview</h2>
+                    
+                    <div class="space-y-8">
+                        <div data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="text-xl font-semibold mb-4 text-white">Challenge</h3>
+                            <p class="text-slate-300">
+                                Traditional quadruped robots struggle with dynamic and uneven terrains, often requiring manual tuning of gait parameters for different environments. 
+                                The challenge was to develop a system that could autonomously adapt its locomotion strategy to varying terrain conditions.
+                            </p>
+                        </div>
+                        
+                        <div data-aos="fade-up" data-aos-delay="200">
+                            <h3 class="text-xl font-semibold mb-4 text-white">Solution</h3>
+                            <p class="text-slate-300">
+                                I developed a reinforcement learning framework that enables the robot to learn optimal gait parameters through trial and error in simulation. 
+                                The system uses proprioceptive feedback and terrain perception to dynamically adjust its walking pattern, allowing it to traverse slopes, stairs, 
+                                and rough terrain with minimal energy expenditure.
+                            </p>
+                        </div>
+                        
+                        <div data-aos="fade-up" data-aos-delay="300">
+                            <h3 class="text-xl font-semibold mb-4 text-white">Implementation</h3>
+                            <p class="text-slate-300">
+                                The project was implemented using ROS for robot control and Gazebo for simulation. The reinforcement learning algorithm was trained using PyTorch, 
+                                with the policy network taking sensor inputs (joint angles, IMU data, and terrain heightmap) and outputting optimal joint trajectories. 
+                                The trained model was then deployed on the physical robot with a NVIDIA Jetson Xavier for real-time inference.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="bg-slate-800/50 p-6 rounded-xl">
+                                <h4 class="text-lg font-semibold mb-3 text-cyan-400">Key Features</h4>
+                                <ul class="space-y-2 text-slate-300">
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="text-green-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Adaptive gait control for varied terrains</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="text-green-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Energy-efficient locomotion</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="text-green-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Self-righting capability</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="text-green-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Obstacle negotiation up to 30cm</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-6 rounded-xl">
+                                <h4 class="text-lg font-semibold mb-3 text-cyan-400">Technical Specs</h4>
+                                <ul class="space-y-2 text-slate-300">
+                                    <li class="flex items-start">
+                                        <i data-feather="cpu" class="text-cyan-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>NVIDIA Jetson Xavier NX</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="zap" class="text-cyan-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>12V 5000mAh LiPo battery</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="maximize-2" class="text-cyan-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Dimensions: 60cm × 40cm × 30cm</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="activity" class="text-cyan-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>8 Dynamixel servos for actuation</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="sticky top-24 space-y-8">
+                        <div class="bg-slate-800/50 p-6 rounded-xl" data-aos="fade-left">
+                            <h3 class="text-xl font-semibold mb-4 text-cyan-400">Project Details</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-sm text-slate-400">Category</p>
+                                    <p class="text-slate-300">Robotics, AI</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-400">Client</p>
+                                    <p class="text-slate-300">Tech Robotics Inc.</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-400">Date</p>
+                                    <p class="text-slate-300">March 2022 - Present</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-400">Project URL</p>
+                                    <a href="#" class="text-cyan-400 hover:underline">github.com/ayush/quadruped-robot</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-slate-800/50 p-6 rounded-xl" data-aos="fade-left" data-aos-delay="100">
+                            <h3 class="text-xl font-semibold mb-4 text-cyan-400">Gallery</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <a href="#" class="block overflow-hidden rounded-lg">
+                                    <img src="http://static.photos/technology/320x240/101" alt="Quadruped Robot" class="w-full h-auto hover:scale-105 transition duration-300">
+                                </a>
+                                <a href="#" class="block overflow-hidden rounded-lg">
+                                    <img src="http://static.photos/technology/320x240/102" alt="Quadruped Robot" class="w-full h-auto hover:scale-105 transition duration-300">
+                                </a>
+                                <a href="#" class="block overflow-hidden rounded-lg">
+                                    <img src="http://static.photos/technology/320x240/103" alt="Quadruped Robot" class="w-full h-auto hover:scale-105 transition duration-300">
+                                </a>
+                                <a href="#" class="block overflow-hidden rounded-lg">
+                                    <img src="http://static.photos/technology/320x240/104" alt="Quadruped Robot" class="w-full h-auto hover:scale-105 transition duration-300">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="py-20 px-4 md:px-8 bg-slate-900">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold mb-12 text-center text-cyan-400" data-aos="fade-up">Project Results</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl font-bold text-cyan-400 mb-4">75%</div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Energy Efficiency</h3>
+                    <p class="text-slate-300">Reduction in power consumption compared to fixed-gait systems</p>
+                </div>
+                
+                <div class="bg-slate-800 p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl font-bold text-cyan-400 mb-4">2.5x</div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Speed Increase</h3>
+                    <p class="text-slate-300">Faster traversal on uneven terrain compared to previous versions</p>
+                </div>
+                
+                <div class="bg-slate-800 p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl font-bold text-cyan-400 mb-4">30cm</div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Obstacle Height</h3>
+                    <p class="text-slate-300">Maximum obstacle height the robot can negotiate autonomously</p>
+                </div>
+            </div>
+            
+            <div class="mt-16" data-aos="fade-up">
+                <div class="bg-slate-800/50 p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-6 text-cyan-400">Demo Video</h3>
+                    <div class="aspect-w-16 aspect-h-9 bg-slate-700 rounded-lg overflow-hidden">
+                        <div class="w-full h-96 flex items-center justify-center">
+                            <div class="text-center">
+                                <i data-feather="play-circle" class="w-16 h-16 mx-auto text-cyan-400 mb-4"></i>
+                                <p class="text-slate-300">Quadruped robot navigating complex terrain</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Project -->
+    <section class="py-20 px-4 md:px-8 bg-slate-800">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="text-2xl text-slate-300 mb-8">Check out my next project</h2>
+            <a href="project-slam.html" class="inline-flex items-center px-8 py-4 border border-cyan-400 text-xl font-medium rounded-md text-cyan-400 hover:bg-cyan-400/10 transition duration-300">
+                3D SLAM for Mobile Robots
+                <i data-feather="arrow-right" class="ml-4"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 md:px-8 bg-slate-900">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold text-cyan-400 mb-4 md:mb-0">AYUSH KUMAR</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition">
+                        <i data-feather="twitter"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition">
+                        <i data-feather="mail"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500">
+                <p>© 2023 Ayush Kumar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        feather.replace();
+    </script>
+</body>
+</html>
