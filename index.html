@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AYUSH KUMAR | Robotics Engineer</title>
 
+    <!-- Prevent caching of the HTML document (best-effort) -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -12,9 +17,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Feather Icons -->
+    <!-- Feather Icons (load once) -->
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
     <!-- model-viewer (for the 3D quadruped) -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
@@ -61,12 +65,12 @@
                 Robotics Engineer | AI Enthusiast | Innovator
             </p>
 
-            <!-- 3D Quadruped Model (replaces the old manual animation) -->
+            <!-- 3D Quadruped Model -->
             <div class="relative w-full max-w-3xl h-[420px] mx-auto" data-aos="fade-up" data-aos-delay="200">
-                <!-- Place your files at: assets/quadruped.glb and (optionally) assets/quadruped.usdz -->
+                <!-- Place your files at: assets/spot.glb and (optionally) assets/quadruped.usdz -->
                 <model-viewer
-                    src="assets/spot.glb"
-                    ios-src="assets/quadruped.usdz"
+                    src="assets/spot.glb?v=20250919"
+                    ios-src="assets/quadruped.usdz?v=20250919"
                     alt="Quadruped robot 3D model"
                     camera-controls
                     auto-rotate
@@ -112,7 +116,7 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">About Me</h2>
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2" data-aos="fade-right">
-                    <img src="assets/dp.jpg" alt="Ayush Kumar" class="rounded-lg shadow-xl w-[640px] h-[480px] object-cover">
+                    <img src="assets/dp.jpg?v=20250919" alt="Ayush Kumar" class="rounded-lg shadow-xl w-[640px] h-[480px] object-cover">
                 </div>
                 <div class="md:w-1/2" data-aos="fade-left">
                     <p class="text-lg text-slate-300 mb-6">
@@ -135,100 +139,97 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Education Timeline (keep this INSIDE the .container mx-auto) -->
+            <div class="mt-16" data-aos="fade-up">
+                <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Education</h3>
+
+                <!-- Mobile: vertical like Experience -->
+                <div class="md:hidden space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover"
+                            style="background-image:url('assets/purdue.png?v=20250919');">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-white">Purdue University</p>
+                            <p class="text-slate-400 text-sm">M.S. in Robotics • 2025–Present</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover"
+                            style="background-image:url('assets/iiit.png?v=20250919');">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-white">IIIT Jabalpur</p>
+                            <p class="text-slate-400 text-sm">BTech in ECE • 2019–2023</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover"
+                            style="background-image:url('assets/dav.png?v=20250919');">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-white">DAV Public School, Ranchi</p>
+                            <p class="text-slate-400 text-sm">High School • 2017–2019</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop: horizontal timeline with connectors -->
+                <div class="hidden md:grid grid-cols-5 items-start gap-6">
+                    <!-- Node 1 -->
+                    <div class="col-span-1 flex flex-col items-center text-center" data-aos="fade-up">
+                        <div
+                            class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800"
+                            style="background-image:url('assets/a.png?v=20250919');">
+                        </div>
+                        <div class="mt-4">
+                            <p class="font-semibold text-white">Purdue University, West Lafayette</p>
+                            <p class="text-slate-400 text-sm">M.S. in Robotics • 2025–Present</p>
+                        </div>
+                    </div>
+
+                    <!-- Connector 1 -->
+                    <div class="col-span-1 flex items-center">
+                        <div class="w-full h-0.5 bg-slate-600"></div>
+                    </div>
+
+                    <!-- Node 2 -->
+                    <div class="col-span-1 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800"
+                            style="background-image:url('assets/iiit.jpg?v=20250919');">
+                        </div>
+                        <div class="mt-4">
+                            <p class="font-semibold text-white">IIIT Jabalpur</p>
+                            <p class="text-slate-400 text-sm">BTech in ECE • 2019–2023</p>
+                        </div>
+                    </div>
+
+                    <!-- Connector 2 -->
+                    <div class="col-span-1 flex items-center">
+                        <div class="w-full h-0.5 bg-slate-600"></div>
+                    </div>
+
+                    <!-- Node 3 -->
+                    <div class="col-span-1 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800"
+                            style="background-image:url('assets/dav.png?v=20250919');">
+                        </div>
+                        <div class="mt-4">
+                            <p class="font-semibold text-white">DAV Public School, Ranchi</p>
+                            <p class="text-slate-400 text-sm">High School • 2017–2019</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-<!-- Education Timeline (keep this INSIDE the .container mx-auto) -->
-<div class="mt-16" data-aos="fade-up">
-  <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Education</h3>
-
-  <!-- Mobile: vertical like Experience -->
-  <div class="md:hidden space-y-8">
-    <div class="flex items-start gap-4">
-      <div
-        class="w-10 h-10 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover"
-        style="background-image:url('assets/purdue.png');">
-      </div>
-      <div>
-        <p class="font-semibold text-white">Purdue University</p>
-        <p class="text-slate-400 text-sm">M.S. in Robotics • 2025–Present</p>
-      </div>
-    </div>
-
-    <div class="flex items-start gap-4">
-      <div
-        class="w-10 h-10 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover"
-        style="background-image:url('assets/iiit.png');">
-      </div>
-      <div>
-        <p class="font-semibold text-white">IIIT Jabalpur</p>
-        <p class="text-slate-400 text-sm">BTech in ECE • 2019–2023</p>
-      </div>
-    </div>
-
-    <div class="flex items-start gap-4">
-      <div
-        class="w-10 h-10 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover"
-        style="background-image:url('assets/dav.png');">
-      </div>
-      <div>
-        <p class="font-semibold text-white">DAV Public School, Ranchi</p>
-        <p class="text-slate-400 text-sm">High School • 2017–2019</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Desktop: horizontal timeline with connectors -->
-  <div class="hidden md:grid grid-cols-5 items-start gap-6">
-    <!-- Node 1 -->
-    <div class="col-span-1 flex flex-col items-center text-center" data-aos="fade-up">
-      <div
-        class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800"
-        style="background-image:url('assets/a.png');">
-      </div>
-      <div class="mt-4">
-        <p class="font-semibold text-white">Purdue University, West Lafayette</p>
-        <p class="text-slate-400 text-sm">M.S. in Robotics • 2025–Present</p>
-      </div>
-    </div>
-
-    <!-- Connector 1 -->
-    <div class="col-span-1 flex items-center">
-      <div class="w-full h-0.5 bg-slate-600"></div>
-    </div>
-
-    <!-- Node 2 -->
-    <div class="col-span-1 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
-      <div
-        class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800"
-        style="background-image:url('assets/iiit.jpg');">
-      </div>
-      <div class="mt-4">
-        <p class="font-semibold text-white">IIIT Jabalpur</p>
-        <p class="text-slate-400 text-sm">BTech in ECE • 2019–2023</p>
-      </div>
-    </div>
-
-    <!-- Connector 2 -->
-    <div class="col-span-1 flex items-center">
-      <div class="w-full h-0.5 bg-slate-600"></div>
-    </div>
-
-    <!-- Node 3 -->
-    <div class="col-span-1 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
-      <div
-        class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800"
-        style="background-image:url('assets/dav.png');">
-      </div>
-      <div class="mt-4">
-        <p class="font-semibold text-white">DAV Public School, Ranchi</p>
-        <p class="text-slate-400 text-sm">High School • 2017–2019</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
     </section>
 
     <!-- Experience Section -->
@@ -239,7 +240,6 @@
             <div class="relative">
                 <!-- Timeline -->
                 <div class="border-l-2 border-cyan-400 absolute inset-y-12 left-1/2 transform -translate-x-1/2 hidden md:block"></div>
-
 
                 <!-- Timeline Items -->
                 <div class="space-y-12">
@@ -252,21 +252,21 @@
                         </div>
                         <!-- Two logos for collaboration -->
                         <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center w-0">
-                        <!-- Left logo -->
-                        <div
-                            class="w-14 h-14 rounded-full bg-center bg-cover shadow-lg ring-2 ring-cyan-400 absolute -left-12"
-                            style="background-image:url('assets/a.png');"
-                            title="Company A"
-                            aria-label="Company A"
-                        ></div>
+                            <!-- Left logo -->
+                            <div
+                                class="w-14 h-14 rounded-full bg-center bg-cover shadow-lg ring-2 ring-cyan-400 absolute -left-12"
+                                style="background-image:url('assets/a.png?v=20250919');"
+                                title="Company A"
+                                aria-label="Company A"
+                            ></div>
 
-                        <!-- Right logo -->
-                        <div
-                            class="w-14 h-14 rounded-full bg-center bg-cover shadow-lg ring-2 ring-cyan-400 absolute -right-12"
-                            style="background-image:url('assets/f.jpg');"
-                            title="Company B"
-                            aria-label="Company B"
-                        ></div>
+                            <!-- Right logo -->
+                            <div
+                                class="w-14 h-14 rounded-full bg-center bg-cover shadow-lg ring-2 ring-cyan-400 absolute -right-12"
+                                style="background-image:url('assets/f.jpg?v=20250919');"
+                                title="Company B"
+                                aria-label="Company B"
+                            ></div>
                         </div>
 
                         <div class="md:w-1/2 md:pl-16 mt-12">
@@ -284,8 +284,8 @@
                             <p class="text-slate-400 text-sm">Sept 2023 - Jul 2025</p>
                         </div>
                         <div
-                        class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
-                        style="background-image:url('assets/c.jpeg');">
+                            class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
+                            style="background-image:url('assets/c.jpeg?v=20250919');">
                         </div>
                         <div class="md:w-1/2 md:pl-12 order-2">
                             <p class="text-slate-300">
@@ -302,8 +302,8 @@
                             <p class="text-slate-400 text-sm">Jan 2023 - Sept 2023</p>
                         </div>
                         <div
-                        class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
-                        style="background-image:url('assets/c.jpeg');">
+                            class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
+                            style="background-image:url('assets/c.jpeg?v=20250919');">
                         </div>
                         <div class="md:w-1/2 md:pl-12">
                             <p class="text-slate-300">
@@ -320,8 +320,8 @@
                             <p class="text-slate-400 text-sm">Sept 2021 - Jun 2022</p>
                         </div>
                         <div
-                        class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
-                        style="background-image:url('assets/b.jpg');">
+                            class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
+                            style="background-image:url('assets/b.jpg?v=20250919');">
                         </div>
                         <div class="md:w-1/2 md:pl-12 order-2">
                             <p class="text-slate-300">
@@ -329,7 +329,6 @@
                             </p>
                         </div>
                     </div>
-
 
                     <!-- Item 5 -->
                     <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
@@ -339,8 +338,8 @@
                             <p class="text-slate-400 text-sm">May 2021 - Aug 2021</p>
                         </div>
                         <div
-                        class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
-                        style="background-image:url('assets/d.jpeg');">
+                            class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
+                            style="background-image:url('assets/d.jpeg?v=20250919');">
                         </div>
                         <div class="md:w-1/2 md:pl-12 order-2">
                             <p class="text-slate-300">
@@ -349,7 +348,7 @@
                         </div>
                     </div>
 
-                    <!-- Item 5 -->
+                    <!-- Item 6 -->
                     <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
                         <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
                             <h3 class="text-xl font-bold text-cyan-400">Form Fab</h3>
@@ -357,8 +356,8 @@
                             <p class="text-slate-400 text-sm">Jan 2020 - Mar 2020</p>
                         </div>
                         <div
-                        class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
-                        style="background-image:url('assets/e.jpg');">
+                            class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
+                            style="background-image:url('assets/e.jpg?v=20250919');">
                         </div>
                         <div class="md:w-1/2 md:pl-12 order-2">
                             <p class="text-slate-300">
@@ -377,392 +376,378 @@
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Featured Projects</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project 1 -->
-            <a href="project-quadruped.html" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/photos/spot.jpg" alt="Quadruped Robot" class="w-full h-55 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Navigation among movable objects - IDEAS Lab</h3>
-                        <p class="text-slate-300 mb-4">An intelligent navigation approach for dense and cluttered indoor and outdoor environments, utilizing the Boston Dynamics SPOT robot to interact effectively with its surroundings.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Isaac Lab</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">VLM</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">UNet</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Synthetic Data Generation</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Reinforcement Learning</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">ROS 2</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <a href="project-quadruped.html" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/photos/spot.jpg?v=20250919" alt="Quadruped Robot" class="w-full h-55 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Navigation among movable objects - IDEAS Lab</h3>
+                            <p class="text-slate-300 mb-4">An intelligent navigation approach for dense and cluttered indoor and outdoor environments, utilizing the Boston Dynamics SPOT robot to interact effectively with its surroundings.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Isaac Lab</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">VLM</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">UNet</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Synthetic Data Generation</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Reinforcement Learning</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">ROS 2</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 2 -->
-            <a href="project-slam.html" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/gifs/trakr.gif" alt="SLAM System" class="w-full h-55 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Autonomy Stack for Qaudruped - Addverb</h3>
-                        <p class="text-slate-300 mb-4">Developed the autonomy stack—including SLAM and navigation—for Addverb’s in-house quadruped, TRAKR, enabling efficient navigation in unknown environments with minimal human intervention.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Graph Optimization</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Bundle Adjustment</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Loop Closure</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Sensor Fusion</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Hybrid A*</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Pure Pursuit Controller</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Design Pattern</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">OpenCV</span>
+                <!-- Project 2 -->
+                <a href="project-slam.html" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/gifs/trakr.gif?v=20250919" alt="SLAM System" class="w-full h-55 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Autonomy Stack for Quadruped - Addverb</h3>
+                            <p class="text-slate-300 mb-4">Developed the autonomy stack—including SLAM and navigation—for Addverb’s in-house quadruped, TRAKR, enabling efficient navigation in unknown environments with minimal human intervention.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Graph Optimization</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Bundle Adjustment</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Loop Closure</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Sensor Fusion</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Hybrid A*</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Pure Pursuit Controller</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Design Pattern</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">OpenCV</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 3 -->
-            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/gifs/haptic.gif" alt="Swarm Robotics" class="w-full h-55 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">VR Haptic Simulator - Addverb</h3>
-                        <p class="text-slate-300 mb-4">Built a VR haptic simulator in Unity to train professionals in adapting to force feedback for long-distance teleoperation over 5G.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-
+                <!-- Project 3 -->
+                <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/gifs/haptic.gif?v=20250919" alt="VR Haptic Simulator" class="w-full h-55 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">VR Haptic Simulator - Addverb</h3>
+                            <p class="text-slate-300 mb-4">Built a VR haptic simulator in Unity to train professionals in adapting to force feedback for long-distance teleoperation over 5G.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 4 -->
-            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/photos/owl.jpg" alt="Swarm Robotics" class="w-full h-55 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">AMR Software Stack - Orangewood labs</h3>
-                        <p class="text-slate-300 mb-4">"Developed an extensive software stack—including navigation, mapping, localization, communication, data filtering, and kinematics—for an AMR equipped with a robotic arm for wall painting, using ROS 2 as the core framework.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-
+                <!-- Project 4 -->
+                <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/photos/owl.jpg?v=20250919" alt="AMR Software Stack" class="w-full h-55 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">AMR Software Stack - Orangewood Labs</h3>
+                            <p class="text-slate-300 mb-4">Developed an extensive software stack—including navigation, mapping, localization, communication, data filtering, and kinematics—for an AMR equipped with a robotic arm for wall painting, using ROS 2 as the core framework.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 5 -->
-            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/gifs/crane.gif" alt="Swarm Robotics" class="w-full h-55 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">6D DOF Pose tracker for Crane hooks</h3>
-                        <p class="text-slate-300 mb-4">Developed a plug-and-play SMART BOX to track the 6-DoF pose of a crane’s hook, enhancing safety by enabling precise position and orientation tracking. Built as part of a robotics hackathon organised by L&T.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-
+                <!-- Project 5 -->
+                <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/gifs/crane.gif?v=20250919" alt="Crane Hook Pose Tracker" class="w-full h-55 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">6D DOF Pose tracker for Crane hooks</h3>
+                            <p class="text-slate-300 mb-4">Developed a plug-and-play SMART BOX to track the 6-DoF pose of a crane’s hook, enhancing safety by enabling precise position and orientation tracking. Built as part of a robotics hackathon organised by L&T.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 6 -->
-            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/photos/sewer.png" alt="Swarm Robotics" class="w-full h-55 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Sewer Monitoring Robot</h3>
-                        <p class="text-slate-300 mb-4">Built a smart sewer monitoring robot that maps underground pipelines and performs structural analysis, enabling efficient inspection, early fault detection, and data-driven maintenance planning. Built as a part of hackathon organised by La Trobe University Australia.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-
+                <!-- Project 6 -->
+                <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/photos/sewer.png?v=20250919" alt="Sewer Monitoring Robot" class="w-full h-55 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Sewer Monitoring Robot</h3>
+                            <p class="text-slate-300 mb-4">Built a smart sewer monitoring robot that maps underground pipelines and performs structural analysis, enabling efficient inspection, early fault detection, and data-driven maintenance planning. Built as a part of hackathon organised by La Trobe University Australia.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 7 -->
-            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/photos/UV_bot.png" alt="Swarm Robotics" class="w-full h-55 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">UV disinfectant robot</h3>
-                        <p class="text-slate-300 mb-4">Designed and implemented an autonomous UV-disinfection robot for hospitals, featuring a custom algorithm that intelligently optimizes zap patterns to reduce power usage and maximize area coverage. Completed as part of an undergrad's capstone project.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-
+                <!-- Project 7 -->
+                <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/photos/UV_bot.png?v=20250919" alt="UV Disinfectant Robot" class="w-full h-55 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">UV disinfectant robot</h3>
+                            <p class="text-slate-300 mb-4">Designed and implemented an autonomous UV-disinfection robot for hospitals, featuring a custom algorithm that intelligently optimizes zap patterns to reduce power usage and maximize area coverage. Completed as part of an undergrad's capstone project.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 8 -->
-            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/gifs/ransac.gif" alt="Swarm Robotics" class="w-full h-64 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Efficient Ransac based ground plane segmentation algorithm using IMU</h3>
-                        <p class="text-slate-300 mb-4">Designed and implemented a RANSAC-based ground plane segmentation algorithm, using IMU readings as an initial estimate to reduce computation time and improve real-time performance.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-
+                <!-- Project 8 -->
+                <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/gifs/ransac.gif?v=20250919" alt="Ground Plane Segmentation" class="w-full h-64 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Efficient Ransac based ground plane segmentation algorithm using IMU</h3>
+                            <p class="text-slate-300 mb-4">Designed and implemented a RANSAC-based ground plane segmentation algorithm, using IMU readings as an initial estimate to reduce computation time and improve real-time performance.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 9 -->
-            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/gifs/rehab_glove.gif" alt="Swarm Robotics" class="w-full h-55 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Mechatronic Rehabilition Glove</h3>
-                        <p class="text-slate-300 mb-4">Developed a mechatronic rehabilitation glove aimed at supporting motor recovery in children from refugee camps in India. Integrated with a game to reduce the physical and emotional strain of therapy by making the process playful and engaging. Built as a part of government project.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-
+                <!-- Project 9 -->
+                <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/gifs/rehab_glove.gif?v=20250919" alt="Mechatronic Rehabilitation Glove" class="w-full h-55 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Mechatronic Rehabilition Glove</h3>
+                            <p class="text-slate-300 mb-4">Developed a mechatronic rehabilitation glove aimed at supporting motor recovery in children from refugee camps in India. Integrated with a game to reduce the physical and emotional strain of therapy by making the process playful and engaging. Built as a part of government project.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 10 -->
-            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/gifs/cobot.gif" alt="Swarm Robotics" class="w-full h-64 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">6 DOF robotic ARM</h3>
-                        <p class="text-slate-300 mb-4">Engineered a fully functional 6-DoF robotic arm from scratch, writing low-level firmware for actuators and implementing ROS-based control architectures. The project included testing various motion planning strategies to enable precise and adaptive manipulation.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-
+                <!-- Project 10 -->
+                <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/gifs/cobot.gif?v=20250919" alt="6 DOF Robotic Arm" class="w-full h-64 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">6 DOF robotic ARM</h3>
+                            <p class="text-slate-300 mb-4">Engineered a fully functional 6-DoF robotic arm from scratch, writing low-level firmware for actuators and implementing ROS-based control architectures. The project included testing various motion planning strategies to enable precise and adaptive manipulation.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 11 -->
-            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/photos/a_star.png" alt="Swarm Robotics" class="w-full h-48 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Custom Path Planning Algorithm</h3>
-                        <p class="text-slate-300 mb-4">Developed a lightweight, ROS-independent A* path planning algorithm with path smoothing, fully implemented in C++ for deployment on resource-constrained boards.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-
+                <!-- Project 11 -->
+                <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/photos/a_star.png?v=20250919" alt="Custom A* Path Planner" class="w-full h-48 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Custom Path Planning Algorithm</h3>
+                            <p class="text-slate-300 mb-4">Developed a lightweight, ROS-independent A* path planning algorithm with path smoothing, fully implemented in C++ for deployment on resource-constrained boards.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Project 12 -->
-            <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                    <img src="assets/gifs/clumsy.gif" alt="Swarm Robotics" class="w-full h-55 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Motion Capture Robot</h3>
-                        <p class="text-slate-300 mb-4">Designed a humanoid robot controlled via a sensor-equipped wearable suit, enabling real-time imitation of human movements. Developed as part of a national-level hackathon project during high school.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-
+                <!-- Project 12 -->
+                <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+                        <img src="assets/gifs/clumsy.gif?v=20250919" alt="Motion Capture Robot" class="w-full h-55 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Motion Capture Robot</h3>
+                            <p class="text-slate-300 mb-4">Designed a humanoid robot controlled via a sensor-equipped wearable suit, enabling real-time imitation of human movements. Developed as part of a national-level hackathon project during high school.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        </div>
-
+                </a>
+            </div>
 
         </div>
     </section>
 
-<!-- Publications Section -->
-<section id="publications" class="py-20 px-4 md:px-8 bg-slate-800">
-  <div class="container mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">
-      Publications
-    </h2>
+    <!-- Publications Section -->
+    <section id="publications" class="py-20 px-4 md:px-8 bg-slate-800">
+      <div class="container mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+          Publications
+        </h2>
 
-    <ul class="space-y-6 max-w-5xl mx-auto">
-      <!-- Pub 1 -->
-      <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up">
-        <div class="flex items-start gap-4">
-          <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
-          <div>
-            <h3 class="text-lg font-semibold text-white">
-              A Sensor-based system for real-time three-dimensional positioning of crane hook and method thereof,
-            </h3>
-            <p class="text-slate-400">
-              Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2023
-            </p>
-            <div class="mt-3 flex flex-wrap gap-4">
-              <a href="#" class="text-cyan-400 hover:underline">Application No. 202321075984</a>
+        <ul class="space-y-6 max-w-5xl mx-auto">
+          <!-- Pub 1 -->
+          <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up">
+            <div class="flex items-start gap-4">
+              <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
+              <div>
+                <h3 class="text-lg font-semibold text-white">
+                  A Sensor-based system for real-time three-dimensional positioning of crane hook and method thereof,
+                </h3>
+                <p class="text-slate-400">
+                  Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2023
+                </p>
+                <div class="mt-3 flex flex-wrap gap-4">
+                  <a href="#" class="text-cyan-400 hover:underline">Application No. 202321075984</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </li>
+          </li>
 
-      <!-- Pub 2 -->
-      <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex items-start gap-4">
-          <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
-          <div>
-            <h3 class="text-lg font-semibold text-white">
-              Haptic device for six degrees of freedom parallel manipulation
-            </h3>
-            <p class="text-slate-400">
-              Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2023 
-            </p>
-            <div class="mt-3 flex flex-wrap gap-4">
-              <a href="#" class="text-cyan-400 hover:underline">Application No. 202311074914</a>
-
+          <!-- Pub 2 -->
+          <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-start gap-4">
+              <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
+              <div>
+                <h3 class="text-lg font-semibold text-white">
+                  Haptic device for six degrees of freedom parallel manipulation
+                </h3>
+                <p class="text-slate-400">
+                  Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2023 
+                </p>
+                <div class="mt-3 flex flex-wrap gap-4">
+                  <a href="#" class="text-cyan-400 hover:underline">Application No. 202311074914</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </li>
+          </li>
 
-      <!-- Pub 1 -->
-      <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up">
-        <div class="flex items-start gap-4">
-          <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
-          <div>
-            <h3 class="text-lg font-semibold text-white">
-              Design of mechatronic rehabilitation glove
-            </h3>
-            <p class="text-slate-400">
-              Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2022
-            </p>
-            <div class="mt-3 flex flex-wrap gap-4">
-              <a href="#" class="text-cyan-400 hover:underline">Application No. 361771-001</a>
+          <!-- Pub 3 -->
+          <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up">
+            <div class="flex items-start gap-4">
+              <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
+              <div>
+                <h3 class="text-lg font-semibold text-white">
+                  Design of mechatronic rehabilitation glove
+                </h3>
+                <p class="text-slate-400">
+                  Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2022
+                </p>
+                <div class="mt-3 flex flex-wrap gap-4">
+                  <a href="#" class="text-cyan-400 hover:underline">Application No. 361771-001</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </li>
-
-      
-    </ul>
-  </div>
-</section>
+          </li>
+        </ul>
+      </div>
+    </section>
 
     <!-- Achievements Section -->
     <section id="achievements" class="py-20 px-4 md:px-8 bg-slate-900">
-    <div class="container mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">
-        Achievements
-        </h2>
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+            Achievements
+            </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- Achievement 1 -->
-        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="text-xl font-bold text-cyan-400 mb-2">Gold Medal BTech - 2024</h3>
-            <p class="text-slate-300">Awarded the D&M Proficiency Gold Medal for the best project across the entire B.Tech batch of 2023.</p>
+                <!-- Achievement 1 -->
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Gold Medal BTech - 2024</h3>
+                    <p class="text-slate-300">Awarded the D&amp;M Proficiency Gold Medal for the best project across the entire B.Tech batch of 2023.</p>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Rookie Of The Year - 2024</h3>
+                    <p class="text-slate-300">Nominated as Best Performer among all freshers in the Advanced Robotics division at Addverb.</p>
+                </div>
+                
+                <!-- Achievement 3 -->
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Top 10 in TIGC - 2024</h3>
+                    <p class="text-slate-300">Ranked in the top 10 at TIGC, an international robotics hackathon organized by La Trobe University, Australia, and received AUD 1,000 (~USD 670) in funding to develop a prototype of the proposed solution.</p>
+                </div>
+
+                <!-- Achievement 4 -->
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">AIR-1 Techgium - 2022</h3>
+                    <p class="text-slate-300">Secured AIR-1 among 800+ participants in a hackathon organized by Larsen &amp; Toubro (L&amp;T), winning a cash prize of INR 1M (~11K USD ) for developing a solution to mitigate crane accidents at construction sites.</p>
+                </div>        
+
+                <!-- Achievement 5 -->
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner Technovate - 2020</h3>
+                    <p class="text-slate-300">Awarded first place in Technovate, a national-level exhibition at IIIT Jabalpur during the annual techno-cultural and design festival.</p>
+                </div>
+
+                <!-- Achievement 6 -->
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner BullsEye - 2020</h3>
+                    <p class="text-slate-300">Secured 1st place in BullsEye, a national-level rocket design competition at IIIT Jabalpur’s annual techno-cultural and design festival, earning titles for both longest flight time and maximum range.</p>
+                </div>
+
+                <!-- Achievement 7 -->
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">RunnerUp Robothon - 2020</h3>
+                    <p class="text-slate-300">Finished as the runner-up in Robothon, a national-level all-terrain semi autonomous vehicle design competition at IIIT Jabalpur during the annual techno-cultural and design festival.</p>
+                </div>
+
+                <!-- Achievement 8 -->
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300 " data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner National-level CBSE Science Exhibition - 2017</h3>
+                    <p class="text-slate-300">Won the CBSE National Level Science Exhibition for developing a motion-synchronized humanoid robot torso that mimics the movements of a human operator.</p>
+                </div>
+
+            </div>
+
         </div>
-
-        <!-- Achievement 2 -->
-        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="text-xl font-bold text-cyan-400 mb-2">Rookie Of The Year - 2024</h3>
-            <p class="text-slate-300">Nominated as Best Performer among all freshers in the Advanced Robotics division at Addverb.</p>
-        </div>
-        
-
-        <!-- Achievement 3 -->
-        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="text-xl font-bold text-cyan-400 mb-2">Top 10 in TIGC - 2024</h3>
-            <p class="text-slate-300">Ranked in the top 10 at TIGC, an international robotics hackathon organized by La Trobe University, Australia, and received AUD 1,000 (~USD 670) in funding to develop a prototype of the proposed solution.</p>
-        </div>
-
-        <!-- Achievement 4 -->
-        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up">
-            <h3 class="text-xl font-bold text-cyan-400 mb-2">AIR-1 Techgium - 2022</h3>
-            <p class="text-slate-300">Secured AIR-1 among 800+ participants in a hackathon organized by Larsen & Toubro (L&T), winning a cash prize of INR 1M (~11K USD ) for developing a solution to mitigate crane accidents at construction sites.</p>
-        </div>        
-
-        <!-- Achievement 5 -->
-        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner Technovate - 2020</h3>
-            <p class="text-slate-300">Awarded first place in Technovate, a national-level exhibition at IIIT Jabalpur during the annual techno-cultural and design festival.</p>
-        </div>
-
-        <!-- Achievement 6 -->
-        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner BullsEye - 2020</h3>
-            <p class="text-slate-300">Secured 1st place in BullsEye, a national-level rocket design competition at IIIT Jabalpur’s annual techno-cultural and design festival, earning titles for both longest flight time and maximum range.</p>
-        </div>
-
-        <!-- Achievement 7 -->
-        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="text-xl font-bold text-cyan-400 mb-2">RunnerUp Robothon - 2020</h3>
-            <p class="text-slate-300">Finished as the runner-up in Robothon, a national-level all-terrain semi autonomous vehicle design competition at IIIT Jabalpur during the annual techno-cultural and design festival.</p>
-        </div>
-
-
-        <!-- Achievement 8 -->
-        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300 " data-aos="fade-up" data-aos-delay="200">
-            <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner National-level CBSE Science Exhibition - 2017</h3>
-            <p class="text-slate-300">Won the CBSE National Level Science Exhibition for developing a motion-synchronized humanoid robot torso that mimics the movements of a human operator.</p>
-        </div>
-
-    </div>
 
     </section>
 
