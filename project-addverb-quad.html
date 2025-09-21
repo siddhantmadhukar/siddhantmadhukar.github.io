@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Quadruped Robot | AYUSH KUMAR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .project-detail {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .tech-badge {
+            transition: all 0.3s ease;
+        }
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(56, 189, 248, 0.1), 0 2px 4px -1px rgba(56, 189, 248, 0.06);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="py-6 px-8 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-cyan-400">AK</a>
+            <a href="index.html" class="flex items-center text-slate-300 hover:text-cyan-400 transition">
+                <i data-feather="arrow-left" class="mr-2"></i>
+                Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="py-20 px-4 md:px-8 bg-gradient-to-b from-slate-900 to-slate-800">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+                        Autonomy Stack for quadruped - Addverb
+                    </h1>
+                    <p class="text-xl text-slate-300 mb-8">
+                        Developed the autonomy stack—including SLAM and navigation—for Addverb’s in-house quadruped, TRAKR, enabling efficient navigation in unknown environments with minimal human intervention.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Graph Optimization</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Bundle Adjustment</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Loop Closure</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Sensor Fusion</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Hybrid A*</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Pure Pursuit Controller</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Design Pattern</span>
+                        <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">OpenCV</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0" data-aos="fade-left">
+                    <div class="relative overflow-hidden rounded-xl shadow-2xl">
+                        <img src="assets/photos/trakr_1.jpeg" alt="Quadruped Robot" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- Project Overview -->
+<section class="py-20 px-4 md:px-8 project-detail">
+  <div class="container mx-auto max-w-6xl">
+    <h2 class="text-3xl font-bold mb-12 text-cyan-400" data-aos="fade-up">Project Overview</h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Left Column: Text -->
+      <div class="space-y-8">
+        <!-- Challenge -->
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-semibold mb-4 text-white">Challenge</h3>
+          <p class="text-slate-300">
+            Developing autonomy pipelines for wheeled robots is relatively easier since they have a reliable source of odometry. However, this is not the case for legged robots such as quadrupeds and humanoids, where obtaining accurate and consistent odometry remains a challenge.
+          </p>
+        </div>
+
+        <!-- Solution -->
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-semibold mb-4 text-white">Solution</h3>
+          <p class="text-slate-300">
+           To address this challenge, we developed a method that integrates a visual-inertial SLAM pipeline, which performs well in most scenarios. However, since it often fails in featureless or textureless environments, we introduced a LiDAR fallback mechanism. By using a 2D LiDAR, we were able to keep costs low while still achieving reliable results.
+          </p>
+        </div>
+
+        <!-- Implementation -->
+        <div data-aos="fade-up" data-aos-delay="300">
+          <h3 class="text-xl font-semibold mb-4 text-white">Implementation</h3>
+          <p class="text-slate-300">
+            For our SLAM system, we designed a visual-inertial frontend that leverages Structure-from-Motion (SfM) with ORB features and motion-only bundle adjustment. On the backend, we employ a LiDAR–visual full bundle adjustment to correct accumulated errors, along with a loop closure module based on a Bag-of-Words approach. For the navigation stack, we implemented a custom Hybrid A*-style planner optimized for faster computation, paired with a Pure Pursuit controller and a tailored decision tree for decision-making.  
+          </p>
+        </div>
+      </div>
+
+        <div class="flex flex-col gap-6" data-aos="fade-left">
+        <!-- Top row with 2 images side by side -->
+        <div class="grid grid-cols-2 gap-4">
+            <img src="/assets/photos/trakr_2.png"
+                alt="Overview Image 1"
+                class="rounded-xl shadow-lg w-full object-cover max-h-80">
+            <img src="/assets/photos/trakr_3.png"
+                alt="Overview Image 2"
+                class="rounded-xl shadow-lg w-full object-cover max-h-80">
+        </div>
+        <img src="/assets/photos/trakr_4.png"
+             alt="Overview Image 2"
+             class="rounded-xl shadow-lg w-full object-cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Results Section -->
+<section class="py-20 px-4 md:px-8 bg-slate-900">
+  <div class="container mx-auto max-w-7xl">
+    <h2 class="text-3xl font-bold mb-12 text-center text-cyan-400" data-aos="fade-up">
+      Project Results
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12" data-aos="fade-up">
+      <!-- Item 1 -->
+      <figure class="group bg-slate-800/60 rounded-xl overflow-hidden ring-1 ring-slate-700/50">
+        <div class="aspect-video overflow-hidden">
+          <img src="/assets/gifs/trakr_sim.gif" alt="IsaacSim Benchmarking"
+               class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+               loading="lazy">
+        </div>
+        <figcaption class="px-4 py-3 text-center text-slate-300 text-sm">IsaacSim Testing</figcaption>
+      </figure>
+
+      <!-- Item 2 -->
+      <figure class="group bg-slate-800/60 rounded-xl overflow-hidden ring-1 ring-slate-700/50">
+        <div class="aspect-video overflow-hidden">
+          <img src="/assets/gifs/trakr.gif" alt="Autonomous Traversal"
+               class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+               loading="lazy">
+        </div>
+        <figcaption class="px-4 py-3 text-center text-slate-300 text-sm">Autonomous Traversal</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+    <!-- Next Project -->
+    <section class="py-20 px-4 md:px-8 bg-slate-800">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="text-2xl text-slate-300 mb-8">Check out my next project</h2>
+            <a href="project-slam.html" class="inline-flex items-center px-8 py-4 border border-cyan-400 text-xl font-medium rounded-md text-cyan-400 hover:bg-cyan-400/10 transition duration-300">
+                3D SLAM for Mobile Robots
+                <i data-feather="arrow-right" class="ml-4"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 md:px-8 bg-slate-900">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold text-cyan-400 mb-4 md:mb-0">AYUSH KUMAR</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition"><i data-feather="github"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition"><i data-feather="linkedin"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition"><i data-feather="twitter"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition"><i data-feather="mail"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500">
+                <p>© 2025 Ayush Kumar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        feather.replace();
+    </script>
+</body>
+</html>
