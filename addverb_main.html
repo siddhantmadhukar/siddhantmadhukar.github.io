@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Autonomous Quadruped Robot | AYUSH KUMAR</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS + Icons -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+    body{ font-family:'Space Grotesk',sans-serif; background:#0f172a; color:#f8fafc; }
+    .tech-badge{ transition:all .3s ease }
+    .tech-badge:hover{ transform:translateY(-2px); box-shadow:0 4px 6px -1px rgba(56,189,248,.1),0 2px 4px -1px rgba(56,189,248,.06) }
+    /* subtle glow for timeline dots */
+    #timeline .dot-ring{ box-shadow:0 0 0 3px rgba(34,211,238,.18) }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="py-6 px-8 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-cyan-400">AK</a>
+      <a href="index.html" class="flex items-center text-slate-300 hover:text-cyan-400 transition">
+        <i data-feather="arrow-left" class="mr-2"></i>
+        Back to Portfolio
+      </a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="py-20 px-4 md:px-8 bg-gradient-to-b from-slate-900 to-slate-800">
+    <div class="container mx-auto max-w-6xl">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2" data-aos="fade-right">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+            Addverb
+          </h1>
+          <p class="text-xl text-slate-300 mb-8">
+            I joined Addverb in 2023 as a Robotics Intern, where I initially focused on firmware development. Over time, I transitioned to working on the application layer of the robots, contributing primarily to Navigation, SLAM, and Computer Vision modules.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
+            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Graph Optimization</span>
+            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Bundle Adjustment</span>
+            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Loop Closure</span>
+            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Sensor Fusion</span>
+            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Design Pattern</span>
+            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Firmware</span>
+            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Computer Vision</span>
+            <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">OpenCV</span>
+          </div>
+        </div>
+        <div class="md:w-1/2 mt-8 md:mt-0" data-aos="fade-left">
+          <div class="relative overflow-hidden rounded-xl shadow-2xl">
+            <img src="assets/gifs/quad_d.gif" alt="Quadruped Robot" class="w-full h-auto">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="py-20 px-4 md:px-8 bg-slate-900">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl font-bold mb-12 text-cyan-400" data-aos="fade-up">Addverb Projects Timeline</h2>
+
+      <!-- list-none removes numbers; border-l draws the line; ml-6 offsets the content from the line -->
+      <ol class="list-none relative border-l-2 border-slate-700 ml-6">
+        <!-- Item 1 -->
+        <li class="relative pl-6 pb-16 last:pb-0" data-aos="fade-up" data-aos-delay="0">
+          <!-- Dot -->
+          <span class="absolute -left-3 top-3 dot-ring flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 ring-2 ring-cyan-400/60">
+            <span class="h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
+          </span>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+            <div>
+              <div class="mb-2 text-sm text-slate-400">2024&ndash;2025</div>
+              <h3 class="text-xl font-semibold text-white">Autonomy Stack for TRAKR</h3>
+              <p class="mt-3 text-slate-300">
+                End-to-end autonomy for Addverb’s in-house quadruped (TRAKR): robust VI-SLAM with LiDAR fallback, global loop-closure, and a fast Hybrid A* planner + Pure Pursuit controller tuned for legged motion.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">C++</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">VIO</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">LiDAR Fallback</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Loop Closure</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Hybrid A*</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Pure Pursuit</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <figure class="group bg-slate-800/60 rounded-xl overflow-hidden ring-1 ring-slate-700/50">
+                <div class="aspect-video overflow-hidden">
+                  <img src="/assets/gifs/trakr.gif" alt="TRAKR autonomous traversal"
+                       class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                </div>
+                <figcaption class="px-4 py-3 text-center text-slate-300 text-xs">Autonomous Traversal</figcaption>
+              </figure>
+              <figure class="group bg-slate-800/60 rounded-xl overflow-hidden ring-1 ring-slate-700/50">
+                <div class="aspect-video overflow-hidden">
+                  <img src="/assets/gifs/slam_sim.gif" alt="Mapping Snapshot"
+                       class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                </div>
+                <figcaption class="px-4 py-3 text-center text-slate-300 text-xs">Visual Odometry</figcaption>
+              </figure>
+            </div>
+          </div>
+        </li>
+
+        <!-- Item 2 -->
+        <li class="relative pl-6 pb-16 last:pb-0" data-aos="fade-up" data-aos-delay="100">
+          <!-- Dot -->
+          <span class="absolute -left-3 top-3 dot-ring flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 ring-2 ring-cyan-400/60">
+            <span class="h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
+          </span>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+            <div>
+              <div class="mb-2 text-sm text-slate-400">2025</div>
+              <h3 class="text-xl font-semibold text-white">Quadruped Stabilization Module</h3>
+              <p class="mt-3 text-slate-300">
+                I developed a module to robustly estimate the ground plane for a quadruped robot by combining visual and kinematic inputs. The first estimate is obtained from a downward-facing camera mounted at the base, while the second is computed using singular value decomposition (SVD) to fit a plane through the four leg contact points. These two estimates are fused with an Extended Kalman Filter, yielding a more accurate and reliable measurement of the ground plane angle as the robot moves. The resulting estimate is then integrated into a higher-level control stack, where it is used to reject external disturbances and ensure stable torso posture during locomotion.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">SVD</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">RANSAC</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Realsense</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Extended Kalman Filter</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Point Cloud</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4">
+              <figure class="group bg-slate-800/60 rounded-xl overflow-hidden ring-1 ring-slate-700/50">
+                <div class="aspect-video overflow-hidden">
+                  <img src="/assets/gifs/quad_stab.gif" alt="Disturbance rejection"
+                       class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                </div>
+                <figcaption class="px-4 py-3 text-center text-slate-300 text-xs">Disturbance rejection</figcaption>
+              </figure>
+            </div>
+          </div>
+        </li>
+
+        <!-- Item 3 -->
+        <li class="relative pl-6 pb-16 last:pb-0" data-aos="fade-up" data-aos-delay="200">
+          <!-- Dot -->
+          <span class="absolute -left-3 top-3 dot-ring flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 ring-2 ring-cyan-400/60">
+            <span class="h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
+          </span>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+            <div>
+              <div class="mb-2 text-sm text-slate-400">2024</div>
+              <h3 class="text-xl font-semibold text-white">Haptic Simulator</h3>
+              <p class="mt-3 text-slate-300">
+                I developed a Unity-based haptic simulation platform aimed at training professionals to effectively adapt to and utilize haptic device feedback. The system provides real-time haptic force rendering for a wide variety of virtual objects, enabling users to experience realistic tactile sensations and interactions. By simulating different material properties, shapes, and resistance levels, the simulator helps users build familiarity with the nuances of touch-based feedback in a safe, controlled, and repeatable environment. This enhances skill development and improves readiness for real-world applications where precise haptic perception is critical.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Unity</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Interprocess Communication</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Haptic Rendering</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Blender</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">C++</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">C#</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Spline Interpolation</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4">
+              <figure class="group bg-slate-800/60 rounded-xl overflow-hidden ring-1 ring-slate-700/50">
+                <div class="aspect-video overflow-hidden">
+                  <img src="/assets/gifs/haptic_logi.gif" alt="Disturbance rejection"
+                       class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                </div>
+                <figcaption class="px-4 py-3 text-center text-slate-300 text-xs">Haptic Simulator</figcaption>
+              </figure>
+            </div>
+          </div>
+        </li>
+
+        <!-- Item 5 -->
+        <li class="relative pl-6 pb-16 last:pb-0" data-aos="fade-up" data-aos-delay="400">
+          <!-- Dot -->
+          <span class="absolute -left-3 top-3 dot-ring flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 ring-2 ring-cyan-400/60">
+            <span class="h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
+          </span>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+            <div>
+              <div class="mb-2 text-sm text-slate-400">2025</div>
+              <h3 class="text-xl font-semibold text-white">Functional Safety</h3>
+              <p class="mt-3 text-slate-300">
+                I implemented a SIL-3 compliant safety pipeline by incorporating OS virtualization, enabling the integration of both a real-time operating system (RTOS) and a Yocto-based operating system. In this architecture, the Yocto-based OS is responsible for running the robot’s primary functions, while the RTOS continuously monitors the Yocto OS and other safety-critical peripherals for potential failures using On-Demand Cross Comparison (ODCC). This design achieved a safety response timeout of 4 ms, ensuring rapid detection and mitigation of faults. The solution has been successfully deployed and tested on a collaborative robot (cobot), demonstrating its reliability and effectiveness in meeting stringent functional safety requirements.  
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">RTOS</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Yocto-OS</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Hypervisor</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Interprocess Communication</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">Embedded C</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">UART</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">SPI</span>
+              </div>
+            </div>
+
+<div class="grid grid-cols-2 gap-6">
+  <figure class="group bg-slate-800/60 rounded-xl overflow-hidden ring-1 ring-slate-700/50">
+    <div class="overflow-hidden h-80"> <!-- increase height -->
+      <img src="/assets/gifs/safety.gif" alt="Project Screenshot"
+           class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+    </div>
+    <figcaption class="px-4 py-3 text-center text-slate-300 text-xs">Cobot Demo</figcaption>
+  </figure>
+  <figure class="group bg-slate-800/60 rounded-xl overflow-hidden ring-1 ring-slate-700/50">
+    <div class="overflow-hidden h-80">
+      <img src="/assets/photos/saf.jpeg" alt="Project Demo"
+           class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+    </div>
+    <figcaption class="px-4 py-3 text-center text-slate-300 text-xs">Cobot</figcaption>
+  </figure>
+</div>
+
+
+          </div>
+        </li>
+
+
+        <!-- Item 4 -->
+        <li class="relative pl-6 pb-16 last:pb-0" data-aos="fade-up" data-aos-delay="300">
+          <!-- Dot -->
+          <span class="absolute -left-3 top-3 dot-ring flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 ring-2 ring-cyan-400/60">
+            <span class="h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
+          </span>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+            <div>
+              <div class="mb-2 text-sm text-slate-400">2023&ndash;2024</div>
+              <h3 class="text-xl font-semibold text-white">Firmware Development</h3>
+              <p class="mt-3 text-slate-300">
+                I developed firmware for a quadruped robot, an exoskeleton, and a haptic device, including actuator control over CAN and integration of sensors via I²C, SPI, and UART. I implemented a lightweight TCP/IP communication module with a custom encoding/decoding scheme, and designed a sensor fusion algorithm to reduce uncertainties in multi-sensor data. Additionally, I built a synchronization module to align data from multiple sources, ensuring reliable and coherent system performance.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">C/C++</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">I2C</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">SPI</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">CAN</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">UART</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">EKF</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">FOC</span>
+                <span class="tech-badge text-xs px-2 py-1 bg-slate-800 rounded-full">PID</span>
+              </div>
+            </div>
+
+<div class="grid grid-cols-2 gap-6">
+  <figure class="group bg-slate-800/60 rounded-xl overflow-hidden ring-1 ring-slate-700/50">
+    <div class="overflow-hidden h-80"> <!-- increase height -->
+      <img src="/assets/photos/haptic.jpg" alt="Project Screenshot"
+           class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+    </div>
+    <figcaption class="px-4 py-3 text-center text-slate-300 text-xs">Haptic Device</figcaption>
+  </figure>
+  <figure class="group bg-slate-800/60 rounded-xl overflow-hidden ring-1 ring-slate-700/50">
+    <div class="overflow-hidden h-80">
+      <img src="/assets/photos/trakr_1.jpeg" alt="Project Demo"
+           class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+    </div>
+    <figcaption class="px-4 py-3 text-center text-slate-300 text-xs">Quadruped</figcaption>
+  </figure>
+</div>
+          </div>
+        </li>
+
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- Next Project -->
+  <section class="py-20 px-4 md:px-8 bg-slate-800">
+    <div class="container mx-auto max-w-6xl text-center">
+      <a href="#" class="inline-flex items-center px-8 py-4 border border-cyan-400 text-xl font-medium rounded-md text-cyan-400 hover:bg-cyan-400/10 transition duration-300">
+        Orangewood Labs
+        <i data-feather="arrow-right" class="ml-4"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 md:px-8 bg-slate-900">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="text-2xl font-bold text-cyan-400 mb-4 md:mb-0">AYUSH KUMAR</div>
+        <div class="flex space-x-6">
+          <a href="#" class="text-slate-400 hover:text-cyan-400 transition"><i data-feather="github"></i></a>
+          <a href="#" class="text-slate-400 hover:text-cyan-400 transition"><i data-feather="linkedin"></i></a>
+          <a href="#" class="text-slate-400 hover:text-cyan-400 transition"><i data-feather="twitter"></i></a>
+          <a href="#" class="text-slate-400 hover:text-cyan-400 transition"><i data-feather="mail"></i></a>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500">
+        <p>© 2025 Ayush Kumar. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 800, once: true });
+    feather.replace();
+  </script>
+</body>
+</html>
