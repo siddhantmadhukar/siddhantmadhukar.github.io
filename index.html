@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AYUSH KUMAR | Robotics Engineer</title>
+  <title>SIDDHANT MADHUKAR | Mechanical Engineer</title>
 
   <!-- Prevent caching of the HTML document (best-effort) -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -24,13 +24,29 @@
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
   <style>
+    /* ====== Photo-derived palette ====== */
+    :root{
+      --bg:#121212;            /* graphite */
+      --surface:#1a1a1a;       /* deep surface */
+      --surface-2:#151515;     /* card alt */
+      --text:#DFDFDF;          /* primary text */
+      --muted:#A0A09E;         /* secondary text */
+      --accent:#AA9255;        /* metallic gold */
+      --accent-700:#8B733A;    /* darker gold */
+      --accent-300:#C9B17A;    /* lighter gold */
+      --ring: rgba(170,146,85,0.6);
+    }
+
+    /* ====== Base typography & page ====== */
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
     body {
       font-family: 'Space Grotesk', sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
+      background-color: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
     }
+
+    /* ====== Subtle, gold-themed accent behaviors ====== */
     .nav-link { position: relative; }
     .nav-link:after {
       content: '';
@@ -39,13 +55,56 @@
       height: 2px;
       bottom: -2px;
       left: 0;
-      background-color: #38bdf8;
+      background-color: var(--accent);
       transition: width 0.3s ease;
     }
     .nav-link:hover:after { width: 100%; }
+
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
+      box-shadow:
+        0 20px 25px -5px rgba(170,146,85,0.15),
+        0 10px 10px -5px rgba(170,146,85,0.08);
+    }
+
+    /* ====== Tailwind utility overrides mapped to palette ======
+       (Keeps your existing class names, changes the colors site-wide)
+    */
+    /* backgrounds */
+    .bg-slate-900, .bg-slate-900\/70, .supports-\[backdrop-filter\]\:bg-slate-900\/60 { background-color: var(--bg) !important; }
+    .bg-slate-800 { background-color: var(--surface) !important; }
+    .bg-slate-700 { background-color: var(--surface-2) !important; }
+    .bg-slate-700\/80 { background-color: color-mix(in oklab, var(--surface-2) 80%, transparent) !important; }
+
+    /* text */
+    .text-slate-300 { color: var(--text) !important; opacity: .85; }
+    .text-slate-400 { color: var(--muted) !important; }
+    .text-white { color: var(--text) !important; }
+
+    /* borders & rings */
+    .border-slate-600 { border-color: #2a2a2a !important; }
+    .ring-cyan-400, .focus\:ring-cyan-400 { box-shadow: 0 0 0 2px var(--ring) !important; }
+
+    /* accent replacements (cyan -> gold) */
+    .text-cyan-400 { color: var(--accent) !important; }
+    .bg-cyan-600 { background-color: var(--accent) !important; }
+    .hover\:bg-cyan-700:hover { background-color: var(--accent-700) !important; }
+    .border-cyan-400 { border-color: var(--accent) !important; }
+
+    /* gradient replacements */
+    .from-cyan-400 { --tw-gradient-from: var(--accent) var(--tw-gradient-from-position) !important; }
+    .to-blue-600, .to-slate-900\/80 { --tw-gradient-to: color-mix(in oklab, var(--accent) 12%, #000) var(--tw-gradient-to-position) !important; }
+    .from-blue-900\/20 { --tw-gradient-from: color-mix(in oklab, var(--accent) 10%, #000) 20% !important; }
+    .bg-gradient-to-b { background-image: linear-gradient(to bottom, var(--tw-gradient-stops)); }
+    .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+
+    /* buttons/links focus */
+    a, button { outline-color: var(--accent); }
+    a:hover { color: var(--accent-300); }
+
+    /* hero gradient overlay fix for new palette */
+    .hero-overlay {
+      background: linear-gradient(to bottom, color-mix(in oklab, var(--accent) 10%, #000) 0%, rgba(0,0,0,0.8) 100%);
     }
   </style>
 </head>
@@ -53,12 +112,11 @@
   <!-- Navigation (fixed) -->
   <nav class="fixed top-0 left-0 right-0 z-50 py-4 md:py-5 px-6 md:px-8 bg-slate-900/70 backdrop-blur supports-[backdrop-filter]:bg-slate-900/60">
     <div class="container mx-auto flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold text-cyan-400">AK</a>
+      <a href="#" class="text-2xl font-bold text-cyan-400">SM</a>
       <div class="hidden md:flex space-x-8">
         <a href="#about" class="nav-link text-slate-300 hover:text-white">About</a>
         <a href="#experience" class="nav-link text-slate-300 hover:text-white">Experience</a>
         <a href="#projects" class="nav-link text-slate-300 hover:text-white">Projects</a>
-        <a href="#publications" class="nav-link text-slate-300 hover:text-white">Publications</a>
         <a href="#achievements" class="nav-link text-slate-300 hover:text-white">Achievements</a>
         <a href="#contact" class="nav-link text-slate-300 hover:text-white">Contact</a>
       </div>
@@ -70,27 +128,33 @@
 
   <!-- Hero Section (pad top to clear fixed nav) -->
   <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 md:pt-28">
-    <div class="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-slate-900/80 z-0"></div>
+    <div class="absolute inset-0 hero-overlay z-0"></div>
     <div class="relative z-10 text-center px-4">
-      <h1 class="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600" data-aos="fade-down">
-        AYUSH KUMAR
-      </h1>
+     <h1 class="hero-title text-5xl md:text-7xl font-bold mb-6" data-aos="fade-down">
+  SIDDHANT MADHUKAR
+</h1>
+
+<style>
+  /* Solid gold title, no gradient */
+  .hero-title {
+    color: #AA9255; /* metallic gold tone from your palette */
+  }
+</style>
       <p class="text-xl md:text-2xl text-slate-300 mb-12" data-aos="fade-down" data-aos-delay="100">
-        Robotics | SLAM | Computer Vision | Reinforcement Learning
+        Li-ion Batteries | 3D Modelling | FEA | Thermal Management
       </p>
 
       <!-- 3D Quadruped Model -->
       <div class="relative w-full max-w-3xl h-[420px] mx-auto" data-aos="fade-up" data-aos-delay="200">
-        <!-- Place your files at: assets/spot.glb and (optionally) assets/quadruped.usdz -->
         <model-viewer
           src="assets/spot.glb?v=20250919"
           ios-src="assets/quadruped.usdz?v=20250919"
-          alt="Quadruped robot 3D model"
+          alt="F1"
           camera-controls
           auto-rotate
           ar
           ar-modes="webxr scene-viewer quick-look"
-          exposure="1.0"
+          exposure="1.0"    
           shadow-intensity="1"
           environment-image="neutral"
           style="width:100%; height:100%; background: transparent;">
@@ -106,44 +170,53 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 px-4 md:px-8 bg-slate-900 scroll-mt-24 md:scroll-mt-28">
-    <div class="container mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">About Me</h2>
-      <div class="flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-1/2" data-aos="fade-right">
-          <img src="assets/dp.jpg?v=20250919" alt="Ayush Kumar" class="rounded-lg shadow-xl w-[640px] h-[480px] object-cover">
+  <!<!-- About Section -->
+<section id="about" class="py-20 px-4 md:px-8 bg-slate-900 scroll-mt-24 md:scroll-mt-28">
+  <div class="container mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">About Me</h2>
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <div class="md:w-1/2" data-aos="fade-right">
+        <img src="assets/dp.jpg?v=20250919" alt="Siddhant Madhukar" class="rounded-lg shadow-xl w-[640px] h-[480px] object-cover">
+      </div>
+      <div class="md:w-1/2" data-aos="fade-left">
+        <p class="text-lg text-slate-300 mb-6">
+          I’m a Mechanical Engineer specializing in EV battery pack design, thermal management, and structural optimization. With over 3 years of experience, I’ve contributed to the development of advanced battery modules, cooling strategies, and lightweight structural designs for electric vehicles.
+        </p>
+        <p class="text-lg text-slate-300 mb-6">
+          I am currently pursuing a Master’s degree in Mechanical Engineering at Purdue University, with a focus on thermal systems, battery thermal management, and advanced manufacturing to enable safer, more efficient, and reliable energy storage solutions.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">EV Battery Pack Design</span>
+          <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Thermal Management</span>
+          <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Structural Optimization</span>
+          <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Advanced Manufacturing & Welding</span>
+          <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">FEA & Simulation</span>
         </div>
-        <div class="md:w-1/2" data-aos="fade-left">
-          <p class="text-lg text-slate-300 mb-6">
-            I’m a Robotics Engineer specializing in SLAM, navigation, computer vision, and reinforcement learning. With over 3 years of experience, I’ve contributed to the development of diverse autonomous systems and robotic platforms.
-          </p>
-          <p class="text-lg text-slate-300 mb-6">
-            I am currently pursuing a Master’s degree in Robotics at Purdue University, with a focus on multi-modal models, reinforcement learning, and classical control theory to drive more efficient and intelligent robotic operations.
-          </p>
-          <div class="flex flex-wrap gap-3 mb-8">
-            <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">SLAM</span>
-            <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Reinforcement Learning</span>
-            <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Navigation</span>
-            <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Computer Vision</span>
-            <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">Machine Learning</span>
-            <span class="px-4 py-2 bg-slate-800 rounded-full text-cyan-400">ROS 2</span>
-          </div>
+        <div class="flex gap-4">
+          <!-- Get In Touch Button -->
           <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 transition duration-300">
             Get In Touch
             <i data-feather="send" class="ml-2"></i>
           </a>
+          <!-- Download Resume Button -->
+          <a href="assets/RESUME SIDDHANT.pdf" target="_blank" rel="noopener noreferrer"
+   class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 transition duration-300">
+  Download My Resume
+  <i data-feather="download" class="ml-2"></i>
+</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
 
       <div class="mt-16 relative" data-aos="fade-up">
         <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Education</h3>
 
-        <!-- Line exactly through center -->
-        <div class="hidden md:block absolute left-1/4 right-1/4 top-[calc(50%+14px)] h-0.5 bg-slate-600"></div>
+        <div class="hidden md:block absolute left-1/4 right-1/4 top-[calc(50%+14px)] h-0.5" style="background:linear-gradient(to right, transparent, var(--accent), transparent)"></div>
 
         <div class="hidden md:grid grid-cols-2 items-start gap-6 relative z-10">
-          <!-- Node 1 -->
           <div class="flex flex-col items-center text-center" data-aos="fade-up">
             <div
               class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800 z-10"
@@ -151,11 +224,10 @@
             </div>
             <div class="mt-4">
               <p class="font-semibold text-white">Purdue University, West Lafayette</p>
-              <p class="text-slate-400 text-sm">M.S. in Robotics • 2025–Present</p>
+              <p class="text-slate-400 text-sm">M.S. in Mechanical Engineering • 2025–Present</p>
             </div>
           </div>
 
-          <!-- Node 2 -->
           <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
             <div
               class="w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg bg-center bg-cover border-4 border-slate-800 z-10"
@@ -163,7 +235,7 @@
             </div>
             <div class="mt-4">
               <p class="font-semibold text-white">IIIT Jabalpur</p>
-              <p class="text-slate-400 text-sm">BTech in ECE • 2019–2023</p>
+              <p class="text-slate-400 text-sm">BTech in ME • 2019–2023</p>
             </div>
           </div>
         </div>
@@ -171,554 +243,317 @@
 
     </div>
   </section>
+<!-- Experience Section -->
+<section id="experience" class="py-20 px-4 md:px-8 bg-slate-800 scroll-mt-24 md:scroll-mt-28">
+  <div class="container mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">My Experience</h2>
 
-  <!-- Experience Section -->
-  <section id="experience" class="py-20 px-4 md:px-8 bg-slate-800 scroll-mt-24 md:scroll-mt-28">
-    <div class="container mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">My Experience</h2>
+    <div class="relative">
+      <div class="border-l-2 border-cyan-400 absolute inset-y-12 left-1/2 transform -translate-x-1/2 hidden md:block"></div>
 
-      <div class="relative">
-        <!-- Timeline -->
-        <div class="border-l-2 border-cyan-400 absolute inset-y-12 left-1/2 transform -translate-x-1/2 hidden md:block"></div>
+      <div class="space-y-12">
 
-        <!-- Timeline Items -->
-        <div class="space-y-12">
-          <!-- Item 1 -->
-          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up">
-            <div class="md:w-1/2 md:pr-16 md:text-right mb-6 md:mb-0 mt-12">
-              <h3 class="text-xl font-bold text-cyan-400">
-                <a href="https://ideas.cs.purdue.edu/" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                  IDEAS Lab, Purdue
-                </a>
-              </h3>
-              <p class="text-slate-300">Graduate Research Assistant</p>
-              <p class="text-slate-400 text-sm">Sept 2025 - Present</p>
-            </div>
-            <!-- Two logos for collaboration -->
-            <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center w-0">
-              <!-- Left logo -->
-              <div
-                class="w-14 h-14 rounded-full bg-center bg-cover shadow-lg ring-2 ring-cyan-400 absolute -left-12"
-                style="background-image:url('assets/a.png?v=20250919');"
-                title="Purdue"
-                aria-label="Purdue"
-              ></div>
-
-              <!-- Right logo -->
-              <div
-                class="w-14 h-14 rounded-full bg-center bg-cover shadow-lg ring-2 ring-cyan-400 absolute -right-12"
-                style="background-image:url('assets/f.jpg?v=20250919');"
-                title="Lilly"
-                aria-label="Lilly"
-              ></div>
-            </div>
-
-            <div class="md:w-1/2 md:pl-16 mt-12">
-              <p class="text-slate-300">
-                Developing advanced navigation algorithms for Eli Lilly’s warehouse robots, integrating deep scene understanding, human behavior modeling, and reinforcement learning to enhance safety, efficiency, and human-robot collaboration.
-              </p>
-            </div>
+        <!-- Item 1 -->
+        <div class="relative flex flex-col md:flex-row items-center group" data-aos="fade-up" data-aos-delay="100">
+          <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
+            <h3 class="text-xl font-bold text-cyan-400 group-hover:text-yellow-400 transition-colors duration-300">
+              <a href="EULER_MAIN.html" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                ETS Lab
+              </a>
+            </h3>
+            <p class="text-slate-300">Graduate Student Researcher</p>
+            <p class="text-slate-400 text-sm">Sept 2025 - Present</p>
           </div>
-
-          <!-- Item 2 -->
-          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
-              <h3 class="text-xl font-bold text-cyan-400">
-                <a href="addverb_main.html" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                  Addverb Technologies
-                </a>
-              </h3>
-              <p class="text-slate-300">Robotics Engineer</p>
-              <p class="text-slate-400 text-sm">Sept 2023 - Jul 2025</p>
-            </div>
-            <div
-              class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
-              style="background-image:url('assets/c.jpeg?v=20250919');">
-            </div>
-            <div class="md:w-1/2 md:pl-12 order-2">
-              <p class="text-slate-300">
-                Developed a complete autonomy stack for quadruped robots, enabling navigation in complex and unmapped environments.
-              </p>
-            </div>
+          <a href="etsl.html" target="_blank" rel="noopener noreferrer"
+             class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover experience-logo"
+             style="background-image:url('assets/a.png');">
+          </a>
+          <div class="md:w-1/2 md:pl-12 order-2">
+            <p class="text-slate-300">
+              Optimizing thermal management for lithium-ion batteries by integrating active and passive methods to enhance temperature control and prevent thermal runaway.
+            </p>
           </div>
-
-          <!-- Item 3 -->
-          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="200">
-            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
-              <h3 class="text-xl font-bold text-cyan-400">
-                <a href="addverb_main.html" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                  Addverb Technologies</h3>
-                </a>
-              </h3>
-              <p class="text-slate-300">Advanced Robotics Eng. Intern</p>
-              <p class="text-slate-400 text-sm">Jan 2023 - Sept 2023</p>
-            </div>
-            <div
-              class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
-              style="background-image:url('assets/c.jpeg?v=20250919');">
-            </div>
-            <div class="md:w-1/2 md:pl-12">
-              <p class="text-slate-300">
-                Developed lower-level drivers, communication modules, and data filters to enable seamless sensor integration and efficient data processing.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
-              <h3 class="text-xl font-bold text-cyan-400">
-                <a href="https://engineering.purdue.edu" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                  Orangewood Labs
-                </a>
-              </h3>
-              <p class="text-slate-300">Research and Development Eng. Intern</p>
-              <p class="text-slate-400 text-sm">Sept 2021 - Jun 2022</p>
-            </div>
-            <div
-              class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
-              style="background-image:url('assets/b.jpg?v=20250919');">
-            </div>
-            <div class="md:w-1/2 md:pl-12 order-2">
-              <p class="text-slate-300">
-                Developed the complete software stack—including SLAM, navigation, firmware, safety layers, and communication protocols—for an Autonomous Mobile Robot (AMR) equipped with a collaborative robot (Cobot) for automated wall painting.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 5 -->
-          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
-              <h3 class="text-xl font-bold text-cyan-400">Asvin Tech</h3>
-              <p class="text-slate-300">Research and Development Eng. Intern</p>
-              <p class="text-slate-400 text-sm">May 2021 - Aug 2021</p>
-            </div>
-            <div
-              class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
-              style="background-image:url('assets/d.jpeg?v=20250919');">
-            </div>
-            <div class="md:w-1/2 md:pl-12 order-2">
-              <p class="text-slate-300">
-                Developed a photogrammetry pipeline for 3D reconstruction of teeth using an in-house intra-oral scanner device, enabling highly accurate models for dental applications.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 6 -->
-          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
-              <h3 class="text-xl font-bold text-cyan-400">Form Fab</h3>
-              <p class="text-slate-300">Research and Development Eng. Intern</p>
-              <p class="text-slate-400 text-sm">Jan 2020 - Mar 2020</p>
-            </div>
-            <div
-              class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover"
-              style="background-image:url('assets/e.jpg?v=20250919');">
-            </div>
-            <div class="md:w-1/2 md:pl-12 order-2">
-              <p class="text-slate-300">
-                Benchmarked state-of-the-art computer vision models, including VGG-16 and AlexNet, for fault detection in metal 3D printing processes.
-              </p>
-            </div>
-          </div>
-
         </div>
+
+        <!-- Item 2 -->
+        <div class="relative flex flex-col md:flex-row items-center group" data-aos="fade-up" data-aos-delay="200">
+          <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+            <h3 class="text-xl font-bold text-cyan-400 group-hover:text-yellow-400 transition-colors duration-300">
+              <a href="etsl.html" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                Euler Motors
+              </a>
+            </h3>
+            <p class="text-slate-300">Battery Technology Engineer II</p>
+            <p class="text-slate-400 text-sm">Jul 2024 - Jun 2025</p>
+          </div>
+          <a href="EULER_MAIN.html" target="_blank" rel="noopener noreferrer"
+             class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover experience-logo"
+             style="background-image:url('assets/c.jpeg?v=20250919');">
+          </a>
+          <div class="md:w-1/2 md:pl-12">
+            <p class="text-slate-300">
+              I focused on a high-voltage 300V battery pack for a 4W product, optimizing the battery box design for reduced weight and improved structural integrity.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="relative flex flex-col md:flex-row items-center group" data-aos="fade-up" data-aos-delay="100">
+          <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
+            <h3 class="text-xl font-bold text-cyan-400 group-hover:text-yellow-400 transition-colors duration-300">
+              <a href="EULER_MAIN.html" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                Euler Motors
+              </a>
+            </h3>
+            <p class="text-slate-300">Battery R&D Engineer I</p>
+            <p class="text-slate-400 text-sm">Dec 2022 - Jun 2024</p>
+          </div>
+          <a href="EULER_MAIN.html" target="_blank" rel="noopener noreferrer"
+             class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover experience-logo"
+             style="background-image:url('assets/c.jpeg');">
+          </a>
+          <div class="md:w-1/2 md:pl-12 order-2">
+            <p class="text-slate-300">
+              I worked on designing a 3W battery pack module, focusing on cost reduction, compression plate improvements, and enhanced welding/adhesive methods for IP67 hermetic sealing.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="relative flex flex-col md:flex-row items-center group" data-aos="fade-up" data-aos-delay="100">
+          <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
+            <h3 class="text-xl font-bold text-cyan-400 group-hover:text-yellow-400 transition-colors duration-300">
+              Northway Motorsport
+            </h3>
+            <p class="text-slate-300">Research and Development Intern</p>
+            <p class="text-slate-400 text-sm">May 2021 - Aug 2021</p>
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer"
+             class="hidden md:block w-14 h-14 rounded-full ring-2 ring-cyan-400 shadow-lg overflow-hidden absolute left-1/2 -translate-x-1/2 bg-center bg-cover experience-logo"
+             style="background-image:url('assets/d.jpeg?v=20250919');">
+          </a>
+          <div class="md:w-1/2 md:pl-12 order-2">
+            <p class="text-slate-300">
+              Contributed to the design and development of battery packs and retrofit EV powertrain kits, including India’s fastest-charging 4W commercial retrofit vehicle (2022).
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<!-- Hover Effect Styles -->
+<style>
+  .experience-logo {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: block;
+    transform-origin: center;
+  }
+  .group:hover .experience-logo {
+    transform: translateX(-50%) scale(1.5);
+    box-shadow: 0 0 15px rgba(170, 146, 85, 0.6);
+  }
+</style>
   <!-- Projects Section -->
-  <section id="projects" class="py-20 px-4 md:px-8 bg-slate-900 scroll-mt-24 md:scroll-mt-28">
-    <div class="container mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Featured Projects</h2>
+<section id="projects" class="py-20 px-4 md:px-8 bg-slate-900 scroll-mt-24 md:scroll-mt-28">
+  <div class="container mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Featured Projects</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project 1 -->
-        <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/photos/spot.jpg?v=20250919" alt="Quadruped Robot" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">Navigation among movable objects - IDEAS Lab</h3>
-              <p class="text-slate-300 mb-4">An intelligent navigation approach for dense and cluttered indoor and outdoor environments, utilizing the Boston Dynamics SPOT robot to interact effectively with its surroundings.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Isaac Lab</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">VLM</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">UNet</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Synthetic Data Generation</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Reinforcement Learning</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">ROS 2</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
-              </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Project 1 -->
+      <a href="EULER_MAIN.html" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up">
+        <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+          <img src="assets/gifs/trakr.gif?v=20250919" alt="4W Battery Pack" class="w-full h-48 md:h-56 object-cover">
+          <div class="p-6 flex-grow">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">4W Storm Battery – Euler Motors</h3>
+            <p class="text-slate-300 mb-4">Developed a 300V high-voltage battery pack for a 4W product, optimizing the battery box with aluminum casting and structural reinforcements.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">SolidWorks</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">ANSYS</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Altair HyperMesh</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Laser Welding</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Thermal Management</span>
             </div>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Project 2 -->
-        <a href="project-addverb-quad.html" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/gifs/trakr.gif?v=20250919" alt="SLAM System" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">Autonomy Stack for Quadruped - Addverb</h3>
-              <p class="text-slate-300 mb-4">Developed the autonomy stack—including SLAM and navigation—for Addverb’s in-house quadruped, TRAKR, enabling efficient navigation in unknown environments with minimal human intervention.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Graph Optimization</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Bundle Adjustment</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Loop Closure</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Sensor Fusion</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Hybrid A*</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Pure Pursuit Controller</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Design Pattern</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">OpenCV</span>
-              </div>
+      <!-- Project 2 -->
+      <a href="EULER_MAIN.html" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+          <img src="assets/gifs/haptic.png" alt="3W Battery Module" class="w-full h-48 md:h-56 object-cover">
+          <div class="p-6 flex-grow">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">3W HiLoad Battery – Euler Motors</h3>
+            <p class="text-slate-300 mb-4">Designed a 3W battery module with cost reduction, improved compression plates, and hermetic sealing (IP67) using adhesives & welding.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">CATIA</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Fusion 360</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Structural Adhesives</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Encapsulation</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">FEA</span>
             </div>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Project 3 -->
-        <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/gifs/haptic.gif?v=20250919" alt="VR Haptic Simulator" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">VR Haptic Simulator - Addverb</h3>
-              <p class="text-slate-300 mb-4">Built a VR haptic simulator in Unity to train professionals in adapting to force feedback for long-distance teleoperation over 5G.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Unity</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess communication</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">5G</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Haptic Rendering</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Spline Interpolation</span>
-              </div>
+      <!-- Project 3 -->
+      <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+          <img src="assets/photos/owl.jpg?v=20250919" alt="Formula SAE" class="w-full h-48 md:h-56 object-cover">
+          <div class="p-6 flex-grow">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">SAE Formula Car – Suspension & Vehicle Dynamics</h3>
+            <p class="text-slate-300 mb-4">Engineered lightweight suspension and steering system with 20% weight reduction and validated using 100+ hrs of simulations and FEA.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Lotus</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">SolidWorks</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Ansys</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">FEA</span>
             </div>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Project 4 -->
-        <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/photos/owl.jpg?v=20250919" alt="AMR Software Stack" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">AMR Software Stack - Orangewood Labs</h3>
-              <p class="text-slate-300 mb-4">Developed an extensive software stack—including navigation, mapping, localization, communication, data filtering, and kinematics—for an AMR equipped with a robotic arm for wall painting, using ROS 2 as the core framework.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Nav2</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">ROS2</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">TCP/IP</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">GMapping</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Firmware</span>
-              </div>
+      <!-- Project 4 -->
+      <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="300">
+        <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+          <img src="assets/gifs/crane.gif?v=20250919" alt="UAV Design" class="w-full h-48 md:h-56 object-cover">
+          <div class="p-6 flex-grow">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">AEROTHON UAV Design</h3>
+            <p class="text-slate-300 mb-4">Designed a UAV with semi-monocoque fuselage, carbon fiber wings, and electric propulsion, focusing on aerodynamics and payload capacity.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">CAD</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Structural Design</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">CFD</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Composite Materials</span>
             </div>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Project 5 -->
-        <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/gifs/crane.gif?v=20250919" alt="Crane Hook Pose Tracker" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">6D DOF Pose tracker for Crane hooks</h3>
-              <p class="text-slate-300 mb-4">Developed a plug-and-play SMART BOX to track the 6-DoF pose of a crane’s hook, enhancing safety by enabling precise position and orientation tracking. Built as part of a robotics hackathon organised by L&T.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Yolov4</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">RaspberryPi</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">OpenCV</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Lidar</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">ROS</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Kalman Filtering</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">WebSocket</span>
-              </div>
+      <!-- Project 5 -->
+      <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="400">
+        <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
+          <img src="assets/photos/UV_bot.png?v=20250919" alt="UV Robot" class="w-full h-48 md:h-56 object-cover">
+          <div class="p-6 flex-grow">
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">UV Disinfectant Robot</h3>
+            <p class="text-slate-300 mb-4">Built an autonomous UV-disinfection robot for hospitals, with path optimization for energy efficiency and maximum area coverage.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Embedded Systems</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Raspberry Pi</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Path Planning</span>
+              <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Sensors & Control</span>
             </div>
           </div>
-        </a>
-
-        <!-- Project 6 -->
-        <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/photos/sewer.png?v=20250919" alt="Sewer Monitoring Robot" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">Sewer Monitoring Robot</h3>
-              <p class="text-slate-300 mb-4">Built a smart sewer monitoring robot that maps underground pipelines and performs structural analysis, enabling efficient inspection, early fault detection, and data-driven maintenance planning. Built as a part of hackathon organised by La Trobe University Australia.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">SPI/I2C</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Serial</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">RaspberryPi</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Yolov4</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">OpenCV</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">SLAM</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">A*</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Sensor Fusion</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 7 -->
-        <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/photos/UV_bot.png?v=20250919" alt="UV Disinfectant Robot" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">UV disinfectant robot</h3>
-              <p class="text-slate-300 mb-4">Designed and implemented an autonomous UV-disinfection robot for hospitals, featuring a custom algorithm that intelligently optimizes zap patterns to reduce power usage and maximize area coverage. Completed as part of an undergrad's capstone project.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">SPI/I2C</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Serial</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Data Structures</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">RaspberryPi</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Yolov4</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">OpenCV</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">SLAM</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">A*</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Sensor Fusion</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 8 -->
-        <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/gifs/ransac.gif?v=20250919" alt="Ground Plane Segmentation" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">Efficient Ransac based ground plane segmentation algorithm using IMU</h3>
-              <p class="text-slate-300 mb-4">Designed and implemented a RANSAC-based ground plane segmentation algorithm, using IMU readings as an initial estimate to reduce computation time and improve real-time performance.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Realsense</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">OpenCV</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">RANSAC</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">IMU</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">SVD</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 9 -->
-        <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/gifs/rehab_glove.gif?v=20250919" alt="Mechatronic Rehabilitation Glove" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">Mechatronic Rehabilition Glove</h3>
-              <p class="text-slate-300 mb-4">Developed a mechatronic rehabilitation glove aimed at supporting motor recovery in children from refugee camps in India. Integrated with a game to reduce the physical and emotional strain of therapy by making the process playful and engaging. Built as a part of government project.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Polynomial Regression</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Arduino</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Firmware</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">EMG</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">TCP/IP</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Interprocess Communication</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Lua</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">CoppeliaSim</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 10 -->
-        <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/gifs/cobot.gif?v=20250919" alt="6 DOF Robotic Arm" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">6 DOF robotic ARM</h3>
-              <p class="text-slate-300 mb-4">Engineered a fully functional 6-DoF robotic arm from scratch, writing low-level firmware for actuators and implementing ROS-based control architectures. The project included testing various motion planning strategies to enable precise and adaptive manipulation.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">MoveIt</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">ROS</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">TCP/IP</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">CAN</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Firmware</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Velocity Controller</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 11 -->
-        <a href="#" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/photos/a_star.png?v=20250919" alt="Custom A* Path Planner" class="w-full h-44 md:h-52 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">Custom Path Planning Algorithm</h3>
-              <p class="text-slate-300 mb-4">Developed a lightweight, ROS-independent A* path planning algorithm with path smoothing, fully implemented in C++ for deployment on resource-constrained boards.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Design Pattern</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Data Interpolation</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Priority Queue</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Custom Map Datatype</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 12 -->
-        <a href="project-slam.html" class="project-card transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-            <img src="assets/gifs/clumsy.gif?v=20250919" alt="Motion Capture Robot" class="w-full h-48 md:h-56 object-cover">
-            <div class="p-6 flex-grow">
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">Motion Capture Robot</h3>
-              <p class="text-slate-300 mb-4">Designed a humanoid robot controlled via a sensor-equipped wearable suit, enabling real-time imitation of human movements. Developed as part of a national-level hackathon project during high school.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Arduino</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C++</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Python</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">C#</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">ROS</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Analog Signal Analysis</span>
-                <span class="text-xs px-2 py-1 bg-slate-700 rounded-full">Servo Control</span>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
+        </div>
+      </a>
 
     </div>
-  </section>
-
-  <!-- Publications Section -->
-  <section id="publications" class="py-20 px-4 md:px-8 bg-slate-800 scroll-mt-24 md:scroll-mt-28">
-    <div class="container mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">
-        Publications
-      </h2>
-
-      <ul class="space-y-6 max-w-5xl mx-auto">
-        <!-- Pub 1 -->
-        <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up">
-          <div class="flex items-start gap-4">
-            <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
-            <div>
-              <h3 class="text-lg font-semibold text-white">
-                A Sensor-based system for real-time three-dimensional positioning of crane hook and method thereof,
-              </h3>
-              <p class="text-slate-400">
-                Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2023
-              </p>
-              <div class="mt-3 flex flex-wrap gap-4">
-                <a href="#" class="text-cyan-400 hover:underline">Application No. 202321075984</a>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <!-- Pub 2 -->
-        <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="100">
-          <div class="flex items-start gap-4">
-            <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
-            <div>
-              <h3 class="text-lg font-semibold text-white">
-                Haptic device for six degrees of freedom parallel manipulation
-              </h3>
-              <p class="text-slate-400">
-                Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2023
-              </p>
-              <div class="mt-3 flex flex-wrap gap-4">
-                <a href="#" class="text-cyan-400 hover:underline">Application No. 202311074914</a>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <!-- Pub 3 -->
-        <li class="bg-slate-900 rounded-lg p-6 shadow-lg" data-aos="fade-up">
-          <div class="flex items-start gap-4">
-            <i data-feather="file-text" class="text-cyan-400 shrink-0 mt-1"></i>
-            <div>
-              <h3 class="text-lg font-semibold text-white">
-                Design of mechatronic rehabilitation glove
-              </h3>
-              <p class="text-slate-400">
-                Ayush Kumar, Co-author • published by <span class="italic">Intellectual Property India</span>, 2022
-              </p>
-              <div class="mt-3 flex flex-wrap gap-4">
-                <a href="#" class="text-cyan-400 hover:underline">Application No. 361771-001</a>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
+  </div>
+</section>
   <!-- Achievements Section -->
-  <section id="achievements" class="py-20 px-4 md:px-8 bg-slate-900 scroll-mt-24 md:scroll-mt-28">
+  <section id="achievements" class="py-20 px-4 md:px-8 bg-slate-800 scroll-mt-24 md:scroll-mt-28">
     <div class="container mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">
         Achievements
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        <!-- Achievement 1 -->
+        <!-- (cards unchanged) -->
         <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-xl font-bold text-cyan-400 mb-2">Gold Medal BTech - 2024</h3>
-          <p class="text-slate-300">Awarded the D&amp;M Proficiency Gold Medal for the best project across the entire B.Tech batch of 2023.</p>
+          <h3 class="text-xl font-bold text-cyan-400 mb-2">23rd Rank SUPRA SAE - 2022</h3>
+          <p class="text-slate-300">Achieved 23rd rank in SUPRA SAE 2022 Competition, securing 2nd place among all INIs.</p>
         </div>
-
-        <!-- Achievement 2 -->
         <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-xl font-bold text-cyan-400 mb-2">Rookie Of The Year - 2024</h3>
-          <p class="text-slate-300">Nominated as Best Performer among all freshers in the Advanced Robotics division at Addverb.</p>
+          <h3 class="text-xl font-bold text-cyan-400 mb-2">Vice-Captain & Driver - SAE Team</h3>
+          <p class="text-slate-300">Elected as Vice-Captain of the SAE Team and served as the official driver, contributing to team leadership and performance in competitions.</p>
         </div>
-        
-        <!-- Achievement 3 -->
-        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-xl font-bold text-cyan-400 mb-2">Top 10 in TIGC - 2024</h3>
-          <p class="text-slate-300">Ranked in the top 10 at TIGC, an international robotics hackathon organized by La Trobe University, Australia, and received AUD 1,000 (~USD 670) in funding to develop a prototype of the proposed solution.</p>
-        </div>
-
-        <!-- Achievement 4 -->
         <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up">
-          <h3 class="text-xl font-bold text-cyan-400 mb-2">AIR-1 Techgium - 2022</h3>
-          <p class="text-slate-300">Secured AIR-1 among 800+ participants in a hackathon organized by Larsen &amp; Toubro (L&amp;T), winning a cash prize of INR 1M (~11K USD ) for developing a solution to mitigate crane accidents at construction sites.</p>
-        </div>        
-
-        <!-- Achievement 5 -->
+          <h3 class="text-xl font-bold text-cyan-400 mb-2">18th Place AEROTHON - 2021</h3>
+          <p class="text-slate-300">Secured 18th place in SAEINDIA Aerothon 2021 aerospace design competition, showcasing UAV design and engineering expertise.</p>
+        </div>
         <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
           <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner Technovate - 2020</h3>
-          <p class="text-slate-300">Awarded first place in Technovate, a national-level exhibition at IIIT Jabalpur during the annual techno-cultural and design festival.</p>
+          <p class="text-slate-300">Awarded 1st place in Technovate, a national-level exhibition at IIIT Jabalpur’s annual techno-cultural and design festival.</p>
         </div>
-
-        <!-- Achievement 6 -->
         <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
           <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner BullsEye - 2020</h3>
-          <p class="text-slate-300">Secured 1st place in BullsEye, a national-level rocket design competition at IIIT Jabalpur’s annual techno-cultural and design festival, earning titles for both longest flight time and maximum range.</p>
+          <p class="text-slate-300">Secured 1st place in BullsEye, a national-level rocket design competition at IIIT Jabalpur, recognized for flight time and range.</p>
         </div>
-
-        <!-- Achievement 7 -->
         <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-xl font-bold text-cyan-400 mb-2">RunnerUp Robothon - 2020</h3>
-          <p class="text-slate-300">Finished as the runner-up in Robothon, a national-level all-terrain semi autonomous vehicle design competition at IIIT Jabalpur during the annual techno-cultural and design festival.</p>
+          <h3 class="text-xl font-bold text-cyan-400 mb-2">Runner-Up Robothon - 2020</h3>
+          <p class="text-slate-300">Finished as runner-up in Robothon, a national-level all-terrain vehicle design competition at IIIT Jabalpur.</p>
         </div>
+      </div>
+    </div>
+  </section>
+<!-- Photography Section -->
+<!-- Photography Section -->
+<section id="photography" class="py-20 px-4 md:px-8 bg-slate-900 scroll-mt-24 md:scroll-mt-28">
+  <div class="container mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Photography</h2>
+    <p class="text-center text-slate-300 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+      Outside of engineering, I pursue photography — landscapes, wildlife, city nights, and candid street moments.
+    </p>
 
-        <!-- Achievement 8 -->
-        <div class="bg-slate-800 rounded-lg shadow-lg p-6 hover:translate-y-[-5px] transition-all duration-300 " data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-xl font-bold text-cyan-400 mb-2">Winner National-level CBSE Science Exhibition - 2017</h3>
-          <p class="text-slate-300">Won the CBSE National Level Science Exhibition for developing a motion-synchronized humanoid robot torso that mimics the movements of a human operator.</p>
-        </div>
-
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="200">
+      <!-- Photo Card -->
+      <div class="relative rounded-lg shadow-lg group">
+        <img src="assets/DWDWD.jpg" alt="DWDWD photo"
+             class="photo-hover object-cover w-full h-64 rounded-lg" loading="lazy">
       </div>
 
-    </div>
+      <div class="relative rounded-lg shadow-lg group">
+        <img src="assets/IMG_7802_VSCO.jpeg" alt="IMG_7802_VSCO photo"
+             class="photo-hover object-cover w-full h-64 rounded-lg" loading="lazy">
+      </div>
 
-  </section>
+      <div class="relative rounded-lg shadow-lg group">
+        <img src="assets/DSC_0009_VSCO.jpg" alt="DSC_0009_VSCO photo"
+             class="photo-hover object-cover w-full h-64 rounded-lg" loading="lazy">
+      </div>
+
+      <div class="relative rounded-lg shadow-lg group">
+        <img src="assets/DEEDWED.jpg" alt="DEEDWED photo"
+             class="photo-hover object-cover w-full h-64 rounded-lg" loading="lazy">
+      </div>
+
+      <div class="relative rounded-lg shadow-lg group">
+        <img src="assets/EDWD.jpg" alt="EDWD photo"
+             class="photo-hover object-cover w-full h-64 rounded-lg" loading="lazy">
+      </div>
+
+      <div class="relative rounded-lg shadow-lg group">
+        <img src="assets/DWEDEWD.jpg" alt="DWEDEWD photo"
+             class="photo-hover object-cover w-full h-64 rounded-lg" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hover Effect Styles -->
+<style>
+  .photo-hover {
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, z-index 0.4s ease;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .photo-hover:hover {
+    transform: scale(1.3);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+    z-index: 50; /* ensures it sits on top */
+  }
+</style>
+
+</section>
+
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 px-4 md:px-8 bg-slate-800 scroll-mt-24 md:scroll-mt-28">
+  <section id="contact" class="py-20 px-4 md:px-8 bg-slate-900 scroll-mt-24 md:scroll-mt-28">
     <div class="container mx-auto max-w-4xl">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Get In Touch</h2>
 
@@ -726,17 +561,17 @@
         <div class="md:w-1/2" data-aos="fade-right">
           <h3 class="text-xl font-bold text-cyan-400 mb-4">Contact Information</h3>
           <p class="text-slate-300 mb-6">
-            Feel free to reach out if you're looking for a robotics engineer, have a question, or just want to connect.
+            Feel free to reach out if you're looking for a battery/mechanical engineer, have a question, or just want to connect.
           </p>
 
           <div class="space-y-4">
             <div class="flex items-center">
               <i data-feather="mail" class="text-cyan-400 mr-4"></i>
-              <span class="text-slate-300">kumar987@purdue.edu</span>
+              <span class="text-slate-300">smadhuka@purdue.edu</span>
             </div>
             <div class="flex items-center">
               <i data-feather="phone" class="text-cyan-400 mr-4"></i>
-              <span class="text-slate-300">+1 (765) 694-9970</span>
+              <span class="text-slate-300">+1 (765) 543-2074</span>
             </div>
             <div class="flex items-center">
               <i data-feather="map-pin" class="text-cyan-400 mr-4"></i>
@@ -745,10 +580,7 @@
           </div>
 
           <div class="mt-8 flex space-x-4">
-            <a href="https://github.com/ayushkumar8340" class="text-slate-300 hover:text-cyan-400 transition">
-              <i data-feather="github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/ayush-kumar-157628207/" class="text-slate-300 hover:text-cyan-400 transition">
+            <a href="https://www.linkedin.com/in/siddhant-madhukar-1b0332193/" class="text-slate-300 hover:text-cyan-400 transition">
               <i data-feather="linkedin"></i>
             </a>
           </div>
@@ -773,26 +605,22 @@
               <i data-feather="send" class="ml-2 inline"></i>
             </button>
           </form>
-
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 px-4 md:px-8 bg-slate-900">
+  <footer class="py-8 px-4 md:px-8 bg-slate-800">
     <div class="container mx-auto text-center">
-      <p class="text-slate-400">© 2025 Ayush Kumar. All rights reserved.</p>
+      <p class="text-slate-400">© 2025 Siddhant Madhukar . All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     // Initialize AOS + Feather icons
     AOS.init({ duration: 800, once: true });
-    document.addEventListener('DOMContentLoaded', () => {
-      feather.replace();
-    });
-    // Note: Removed the old "robot-leg" JS animation completely.
+    document.addEventListener('DOMContentLoaded', () => { feather.replace(); });
   </script>
 </body>
 </html>

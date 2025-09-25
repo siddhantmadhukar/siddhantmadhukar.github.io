@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ETSL | Siddhant Madhukar</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <style>
+    /* ====== Metallic Gold Palette ====== */
+    :root{
+      --bg:#121212;            /* graphite */
+      --surface:#1a1a1a;       /* deep surface */
+      --surface-2:#151515;     /* alt card */
+      --text:#DFDFDF;          /* primary text */
+      --muted:#A0A09E;         /* secondary text */
+      --accent:#AA9255;        /* metallic gold */
+      --accent-700:#8B733A;    /* darker gold */
+      --accent-300:#C9B17A;    /* lighter gold */
+      --ring: rgba(170,146,85,0.6);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+    body{ font-family:'Space Grotesk',sans-serif; background:var(--bg); color:var(--text); }
+
+    .project-detail { background: linear-gradient(135deg, #111111 0%, #0a0a0a 100%); }
+
+    .tech-badge{ transition:all .25s ease }
+    .tech-badge:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 12px -6px rgba(170,146,85,0.25);
+    }
+
+    /* Tailwind overrides */
+    .text-yellow-500 { color: var(--accent) !important; }
+    .hover\:text-yellow-400:hover { color: var(--accent-300) !important; }
+    .border-yellow-600 { border-color: var(--accent) !important; }
+    .hover\:bg-yellow-500:hover { background-color: var(--accent-700) !important; }
+    .bg-yellow-600 { background-color: var(--accent) !important; }
+
+    .text-neutral-300 { color: var(--text) !important; opacity:.88; }
+    .text-neutral-400 { color: var(--muted) !important; }
+    .text-neutral-200 { color: var(--text) !important; }
+
+    .bg-black { background-color: var(--bg) !important; }
+    .bg-neutral-950 { background-color: var(--surface) !important; }
+    .bg-neutral-900 { background-color: var(--surface-2) !important; }
+
+    .border-neutral-900 { border-color: #222 !important; }
+  </style>
+</head>
+<body class="bg-black">
+  <!-- Navigation -->
+  <nav class="py-6 px-8 bg-black/80 backdrop-blur-md sticky top-0 z-50 border-b border-neutral-900">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-yellow-500 hover:text-yellow-400 transition">SM</a>
+      <a href="index.html" class="flex items-center text-neutral-300 hover:text-yellow-400 transition">
+        <i data-feather="arrow-left" class="mr-2"></i>
+        Back to Portfolio
+      </a>
+    </div>
+  </nav>
+
+  <!-- Project Header -->
+  <header class="py-20 px-4 md:px-8 bg-gradient-to-b from-black to-neutral-950">
+    <div class="container mx-auto max-w-6xl">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2" data-aos="fade-right">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-300)] to-[var(--accent)]">
+            Energy and Transport Sciences Lab - Purdue
+          </h1>
+
+          <p class="text-lg md:text-xl text-neutral-300 mb-8">
+            I am a Graduate Researcher at the Energy and Transport Sciences (ETS) Lab, Purdue University.  
+            My current work focuses on <span class="text-yellow-500 font-semibold">thermal management for AI microchips</span>, exploring the fundamental heat transfer mechanisms at the micro-level and developing strategies to optimize their performance.  
+            As I am in the early stages of this research, much of my work involves <span class="text-yellow-500 font-semibold">brainstorming, conceptual development, and exploratory modeling</span> to establish new directions.  
+            In parallel, I am also working on <span class="text-yellow-500 font-semibold">computational models for thermal management in battery energy storage systems (BESS)</span>, aiming to improve efficiency, reliability, and long-term sustainability.
+          </p>
+
+          <!-- Work-in-progress Card -->
+          <div class="flex items-start gap-3 p-4 mb-8 rounded-lg bg-neutral-950 border border-yellow-600/60">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86l-7.6 13.14A1 1 0 003.4 19h17.2a1 1 0 00.87-1.5l-7.6-13.14a1 1 0 00-1.74 0z"/>
+            </svg>
+            <p class="text-sm text-neutral-200">
+              <span class="font-semibold text-yellow-400">Note:</span>
+              This research is ongoing. Results are preliminary, and detailed findings will be shared once validated.
+            </p>
+          </div>
+
+          <!-- Skills -->
+          <div class="flex flex-wrap gap-3">
+            <span class="tech-badge text-xs px-3 py-1 rounded-full bg-neutral-900 text-yellow-500">Thermal Management</span>
+            <span class="tech-badge text-xs px-3 py-1 rounded-full bg-neutral-900 text-yellow-500">Microchip Cooling</span>
+            <span class="tech-badge text-xs px-3 py-1 rounded-full bg-neutral-900 text-yellow-500">Heat Transfer</span>
+            <span class="tech-badge text-xs px-3 py-1 rounded-full bg-neutral-900 text-yellow-500">Computational Modeling</span>
+            <span class="tech-badge text-xs px-3 py-1 rounded-full bg-neutral-900 text-yellow-500">Battery Energy Storage (BESS)</span>
+            <span class="tech-badge text-xs px-3 py-1 rounded-full bg-neutral-900 text-yellow-500">Finite Element Analysis</span>
+            <span class="tech-badge text-xs px-3 py-1 rounded-full bg-neutral-900 text-yellow-500">Multiphysics Simulation</span>
+            <span class="tech-badge text-xs px-3 py-1 rounded-full bg-neutral-900 text-yellow-500">High-Performance Computing (HPC)</span>
+            <span class="tech-badge text-xs px-3 py-1 rounded-full bg-neutral-900 text-yellow-500">Data-Driven Design</span>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="md:w-1/2 mt-8 md:mt-0" data-aos="fade-left">
+          <div class="relative overflow-hidden rounded-xl shadow-2xl">
+            <img src="assets/ETSLA.png" alt="ETS Lab Research" class="w-full h-auto">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Project Overview -->
+  <section class="py-20 px-4 md:px-8 project-detail">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl font-bold mb-12 text-yellow-500" data-aos="fade-up">Project Overview</h2>
+
+      <div class="space-y-12">
+        <!-- Challenge -->
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-semibold mb-4 text-white">Challenge</h3>
+          <p class="text-neutral-300">
+            The rapid scaling of <span class="text-yellow-500 font-semibold">artificial intelligence (AI) hardware</span> has led to chips operating at unprecedented power densities, producing intense heat in compact geometries. Conventional cooling strategies struggle at the micro- and nano-scale, where thermal resistance, non-uniform hotspots, and material limits present significant bottlenecks.  
+            Similarly, <span class="text-yellow-500 font-semibold">battery energy storage systems (BESS)</span> face growing demands for efficiency and safety under high charging/discharging cycles. Poor thermal management can accelerate degradation, reduce reliability, and even trigger catastrophic failures.  
+            Balancing performance, energy efficiency, and long-term reliability across these domains requires innovative thermal modeling approaches that bridge fundamental physics with scalable engineering solutions.
+          </p>
+        </div>
+
+        <!-- Solution -->
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-semibold mb-4 text-white">Solution</h3>
+          <p class="text-neutral-300">
+            At ETS Lab, my work is directed toward developing <span class="text-yellow-500 font-semibold">computational thermal models</span> that integrate detailed physics-based simulations with data-driven methods.  
+            For AI microchips, this involves investigating <span class="text-yellow-500 font-semibold">micro-level heat transport mechanisms</span>, designing enhanced cooling strategies, and benchmarking novel approaches such as <span class="text-yellow-500 font-semibold">phase-change materials</span> and <span class="text-yellow-500 font-semibold">microfluidic channels</span>.  
+            For BESS, I am building <span class="text-yellow-500 font-semibold">multi-scale thermal models</span> to simulate cell-to-pack level heat transfer, optimize airflow/liquid cooling layouts, and explore predictive algorithms for <span class="text-yellow-500 font-semibold">real-time thermal management</span>.  
+            This dual-track approach—microchip cooling and battery system modeling—lays the foundation for safer, more reliable, and energy-efficient technologies in both computing and energy storage.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Project -->
+  <section class="py-20 px-4 md:px-8 bg-neutral-950">
+    <div class="container mx-auto max-w-6xl text-center">
+      <a href="EULER_MAIN.html"
+         class="inline-flex items-center px-8 py-4 border border-yellow-600 text-xl font-medium rounded-md text-yellow-500 hover:text-black hover:bg-yellow-500 transition duration-300">
+        Euler Motors
+        <i data-feather="arrow-right" class="ml-4"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 md:px-8 bg-black">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="text-2xl font-bold text-yellow-500 mb-4 md:mb-0">SIDDHANT MADHUKAR</div>
+        <div class="flex space-x-6">
+          <a href="#" class="text-neutral-400 hover:text-yellow-400 transition"><i data-feather="github"></i></a>
+          <a href="#" class="text-neutral-400 hover:text-yellow-400 transition"><i data-feather="linkedin"></i></a>
+          <a href="#" class="text-neutral-400 hover:text-yellow-400 transition"><i data-feather="twitter"></i></a>
+          <a href="#" class="text-neutral-400 hover:text-yellow-400 transition"><i data-feather="mail"></i></a>
+        </div>
+      </div>
+      <div class="border-t border-neutral-900 mt-8 pt-8 text-center text-neutral-500">
+        <p>© 2025 Siddhant Madhukar. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 800, once: true });
+    feather.replace();
+  </script>
+</body>
+</html>
